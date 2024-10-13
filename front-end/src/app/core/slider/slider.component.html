@@ -1,0 +1,12 @@
+<div class="slider"><c-carousel [interval]="3000">
+        <c-carousel-inner>
+            <c-carousel-item *ngFor="let slide of slides">
+                <img [src]="slide.src" alt="{{ slide.title }}" class="d-block w-100" loading="lazy" />
+            </c-carousel-item>
+        </c-carousel-inner>
+        <div class="indicadores">
+            <c-carousel-indicators></c-carousel-indicators>
+        </div>
+    </c-carousel>
+    <div class="border"></div>
+</div>

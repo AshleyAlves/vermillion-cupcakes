@@ -1,0 +1,33 @@
+.accordion{
+    --bs-accordion-bg: #ffffffc2 !important;
+    margin: 20px 0;
+}
+.accordion-item h2 button{
+    font-size: 20px !important;
+    text-transform: uppercase !important;
+    font-family: "Roboto", sans-serif;
+    color: var(--clr-red);
+    font-weight: 700;
+    font-style: normal;
+}
+.accordion-button:not(.collapsed){
+    background-color: #ffffffc2 !important;
+}
+.accordion-collapse{
+    color: #000000;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+}
+.accordion-item{
+    border-color: var(--clr-gold);
+}
+.accordion-button:focus{
+    box-shadow: none;
+}
+h1::before {
+    left: -405px;
+}
+h1::after {
+    right: -410px;
+    bottom: 363px;
+}

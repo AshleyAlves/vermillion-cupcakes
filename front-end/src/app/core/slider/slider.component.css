@@ -1,0 +1,22 @@
+.indicadores {
+  width: 200px;
+  position: relative;
+  margin: 0 auto;
+  top: -55px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.indicadores .carousel-indicators button {
+  width: 40px;
+  background-color: #ffffffa8;
+  border-color: #ffffffa8;
+  border-radius: 14px;
+  height: 7px;
+  margin: 0 10px;
+}
+
+[_ngcontent-ng-c2126862014] .active{
+  margin-top: 55px;
+}

@@ -1,0 +1,144 @@
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-2: hsl(205, 77%, 27%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-4: hsl(205, 63%, 48%);
+  /* primary/main color */
+  --clr-primary-5: hsl(205, 78%, 60%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(205, 89%, 70%);
+  --clr-primary-7: hsl(205, 90%, 76%);
+  --clr-primary-8: hsl(205, 86%, 81%);
+  --clr-primary-9: hsl(205, 90%, 88%);
+  --clr-primary-10: hsl(205, 100%, 96%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  /* Colors */
+  --clr-white: #fff;
+  --clr-red: #830000;
+  --clr-gold: #DAA520;
+  --clr-black: #222;
+  --ff-primary: 'Open Sans', sans-serif;
+  --ff-secondary: 'Poppins', sans-serif;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
+
+/* Pseudo-elements */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--clr-red);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--clr-gold);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--clr-red);
+}
+
+::selection {
+  background: var(--clr-gold);
+  color: #fff;
+}
+body {
+  background-color: #fff;
+  color: var(--clr-black);
+  font-family: "Sedan";
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.container{
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: 'Sedan SC';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 89px;
+  color: var(--clr-red);
+  text-align: center;
+}
+h1::before {
+  content: url("assets/img/waves.png");
+  display: block;
+  width: 145px;
+  height: 90px;
+  position: absolute;
+  left: -710px;
+  right: 0;
+  margin: 0 auto;
+}
+
+h1::after {
+  content: url("assets/img/waves-1.png");
+  display: block;
+  height: 90px;
+  position: absolute;
+  right: -728px;
+  left: 0;
+  margin: 0 auto;
+}
+p{
+  font-size: 25px;
+  font-family: "Sedan";
+  font-weight: 400;
+  line-height: 34px;
+  color: black;
+}
+
+h2{
+  font-family: 'Sedan SC';
+  font-size: 54px;
+  color: var(--clr-red);
+  text-align: center;
+}
+
+h3{
+  font-family: 'Roboto', sans-serif;
+  font-size: 26px;
+  color: var(--clr-red);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.espaco{
+  height: 70px;
+}
+.border {
+  width: 1900px;
+  height: 7px;
+  background: var(--clr-gold);
+  border: none !important;
+}
+.background{
+  background-image: url("assets/img/bg.jpg");
+  background-size: 2000px 800px;
+  background-repeat: no-repeat;
+  min-height: 520px;
+  width: 2000px;
+  display: flex;
+  align-items: center;
+}

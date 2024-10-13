@@ -1,0 +1,41 @@
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="assets/img/logo.png" alt="Logo da Empresa">
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Pesquisar">
+            <img src="assets/img/search.png" alt="Login">
+        </div>
+        <div class="user-actions">
+            <div class="user-icon">
+                <a routerLink="/cadastro"><img src="assets/img/user.png" alt="Login">
+                <span id="login">Minha Conta</span></a>
+            </div>
+            <div class="cart-icon">
+                <a routerLink="/carrinho"><img src="assets/img/cart.png" alt="Carrinho">
+                <span id="cart-value">0 itens<br>R$0.00</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a routerLink="">Home</a></li>
+                <li><a routerLink="/sobre">Sobre</a></li>
+                <li class="dropdown">
+                    <a routerLink="/cardapio">Cardápio</a>
+                    <ul class="dropdown-content">
+                        <li><a routerLink="/cardapio/#baunilha"> Baunilha</a></li>
+                        <li><a routerLink="/cardapio/#chocolate">Chocolate</a></li>
+                        <li><a routerLink="/cardapio/#coco">Coco</a></li>
+                        <li><a routerLink="/cardapio/#laranja">Laranja</a></li>
+                        <li><a routerLink="/cardapio">Todos</a></li>
+                    </ul>
+                </li>
+                <li><a routerLink="/duvidas">Dúvidas</a></li>
+                <li><a routerLink="https://api.whatsapp.com/send?phone=5511900000000">Fale Conosco</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

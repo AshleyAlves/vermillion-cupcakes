@@ -1,0 +1,44 @@
+.footer {
+    height: 277px;
+    background: linear-gradient(90deg, #1D0101 0%, #560000 81%);
+}
+
+.footer .row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 45px;
+}
+
+.footer .col {
+    width: 33%;
+    margin: auto;
+    text-align: center;
+}
+.footer .col:nth-child(3){
+    padding-bottom: 54px;
+}
+.footer img {
+    width: 175px;
+}
+
+a {
+    color: var(--clr-white);
+    font-family: 'Sedan SC';
+    font-size: 26px;
+    line-height: 40px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.payments .row .col {
+    text-align: center;
+}
+.payments img{
+    height: 45px;
+}

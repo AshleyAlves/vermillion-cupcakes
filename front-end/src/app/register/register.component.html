@@ -1,0 +1,46 @@
+<app-cover></app-cover>
+<div class="espaco"></div>
+<div class="row">
+    <div class="container">
+        <h1>Cadastro</h1>
+    </div>
+</div>
+<div class="espaco"></div>
+<div class="container">
+    <div class="row formulario">
+        <div class="col">
+            <div class="dicas">
+                <h3>Sua senha deve conter:</h3>
+                <ul>
+                    <li>
+                        No mínimo 8 caracteres;
+                    </li>
+                    <li>
+                        No mínimo 1 letra maiúscula(Exemplo: A);
+                    </li>
+                    <li>
+                        No mínimo 1 letra minúscula(Exemplo: a);
+                    </li>
+                    <li>
+                        No mínimo 1 número;
+                    </li>
+                    <li>
+                        No mínimo 1 símbolo;
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form">
+                <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+                    <input type="text" id="nome" name="nome" placeholder="Nome completo" [(ngModel)]="user.nome" required><br/>
+                    <input type="email" id="email" name="email" placeholder="E-mail" [(ngModel)]="user.email" required><br/>
+                    <input type="password" id="senha" name="senha" placeholder="Senha" [(ngModel)]="user.senha" required><br/>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(11) 90000-0000" [(ngModel)]="user.telefone" required><br/>
+                    <button type="submit">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="espaco"></div>
