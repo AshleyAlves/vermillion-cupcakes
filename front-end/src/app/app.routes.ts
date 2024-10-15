@@ -4,13 +4,15 @@ import { AboutComponent } from './about/about.component';
 import { MenuComponent } from './menu/menu.component';
 import { FaqComponent } from './faq/faq.component';
 import { RegisterComponent } from './register/register.component';
+import { ProductComponent } from './core/product/product.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'sobre', component: AboutComponent },
     { path: 'cardapio', component: MenuComponent },
     { path: 'duvidas', component: FaqComponent },
-    { path: 'cadastro', component: RegisterComponent}
+    { path: 'cadastro', component: RegisterComponent },
+    { path: 'produtos', component: ProductComponent },
 
     // { path: '**', redirectTo: '' }
 ];
