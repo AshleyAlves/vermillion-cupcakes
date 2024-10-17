@@ -1,3 +1,34 @@
+<app-cover></app-cover>
 <div class="espaco"></div>
-<app-product></app-product>
-<div class="espaco"></div>
+<div class="container">
+    <div class="row">
+        <h1>Cardápio</h1>
+        <div class="espaco"></div>
+    </div>
+</div>
+<div class="filter">
+    <div class="row">
+        <div class="container">
+            <form method="get">
+                <label for="categorias">Filtrar cupcake:</label>
+                <input list="categorias" name="categoria" id="categoria" placeholder="Selecione a opção">
+                <datalist id="categorias">
+                    <option value="Baunilha">
+                    <option value="Chocolate">
+                    <option value="Coco">
+                    <option value="Laranja">
+                    <option value="Limão">
+                    <option value="Todos">
+                </datalist>
+                <input type="submit"><i class="fa-solid fa-caret-down"></i>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="cupcakes">
+    <div class="container">
+        <div class="row">
+            <app-product></app-product>
+        </div>
+    </div>
+</div>

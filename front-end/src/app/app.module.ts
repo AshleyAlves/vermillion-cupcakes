@@ -14,7 +14,6 @@ import { CoverComponent } from './core/cover/cover.component';
 import { RegisterComponent } from './register/register.component';
 import { ProductComponent } from './core/product/product.component';
 import { CommonModule } from '@angular/common';
-import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,7 +34,7 @@ import { provideHttpClient } from '@angular/common/http';
     CarouselModule.forRoot(),
     CommonModule
   ],
-  providers: [provideHttpClient()],
+  providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

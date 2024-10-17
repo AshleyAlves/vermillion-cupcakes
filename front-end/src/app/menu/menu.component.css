@@ -1,0 +1,36 @@
+.cupcakes{
+    background-image: url("../../assets/img/bg-cardapio.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: 2000px 1315px;
+    background-repeat: no-repeat;
+    min-height: 1200px;
+}
+.filter{
+    text-align: center;
+    background-color: var(--clr-red);
+    padding: 15px;
+}
+label{
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+#categoria{
+    background-color: var(--clr-gold);
+    margin-left: 20px;
+}
+#categoria::placeholder{
+    color: white;
+    font-size: 22px;
+    font-family: 'Roboto', sans-serif;
+}
+h1::after {
+    right: -425px;
+    bottom: 363px;
+}
+h1::before {
+    left: -430px;
+}

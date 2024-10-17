@@ -22,6 +22,9 @@ export class ProductComponent implements OnInit {
     });
   }
   adicionarAoCarrinho(product: Product): void {
-    console.log(`Produto ${product.nome} adicionado ao carrinho`);
+    console.log(`Cupcake ${product.nome} adicionado ao carrinho`);
+  }
+  adicionarAosFavoritos(product: Product): void {
+    console.log(`Cupcake ${product.nome} adicionado aos favoritos`);
   }
 }
