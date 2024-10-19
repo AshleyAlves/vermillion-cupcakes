@@ -1,0 +1,16 @@
+h3{
+    color: white;
+    font-size: 22px;
+}
+.filter-container{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+.filter-container select{
+    width: 190px;
+    color: white;
+    background-color: var(--clr-gold);
+    height: 27px;
+}

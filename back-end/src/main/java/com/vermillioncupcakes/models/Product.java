@@ -30,6 +30,9 @@ public class Product {
     @Column(nullable = false)
     private String imagem;
 
+    @Column(nullable = false)
+    private String categoria;
+
     public Long getId() {
         return id;
     }
@@ -76,5 +79,13 @@ public class Product {
 
     public void setImagem(String imagem) {
         this.imagem = imagem;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 }

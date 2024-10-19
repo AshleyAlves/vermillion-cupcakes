@@ -14,6 +14,8 @@ import { CoverComponent } from './core/cover/cover.component';
 import { RegisterComponent } from './register/register.component';
 import { ProductComponent } from './core/product/product.component';
 import { CommonModule } from '@angular/common';
+import { FilterComponent } from './core/filter/filter.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { CommonModule } from '@angular/common';
     HeaderComponent,
     CoverComponent,
     RegisterComponent,
-    ProductComponent
+    ProductComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes), 
     CarouselModule.forRoot(),
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

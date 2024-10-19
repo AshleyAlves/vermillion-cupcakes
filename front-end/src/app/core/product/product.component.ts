@@ -21,10 +21,10 @@ export class ProductComponent implements OnInit {
       this.products = data;
     });
   }
-  adicionarAoCarrinho(product: Product): void {
-    console.log(`Cupcake ${product.nome} adicionado ao carrinho`);
-  }
-  adicionarAosFavoritos(product: Product): void {
-    console.log(`Cupcake ${product.nome} adicionado aos favoritos`);
-  }
+  // adicionarAoCarrinho(product: Product): void {
+  //   console.log(`Cupcake ${product.nome} adicionado ao carrinho`);
+  // }
+  // adicionarAosFavoritos(product: Product): void {
+  //   console.log(`Cupcake ${product.nome} adicionado aos favoritos`);
+  // }
 }

@@ -1,0 +1,8 @@
+<div class="filter-container">
+  <h3>Filtrar Cupcakes: </h3>
+  <select [(ngModel)]="selectedCategory">
+    <option value="">Todos</option>
+    <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
+  </select>
+  <button (click)="onFilterChange()">Filtrar</button>
+</div>
