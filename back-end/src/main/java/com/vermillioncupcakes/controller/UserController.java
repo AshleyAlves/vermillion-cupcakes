@@ -16,11 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vermillioncupcakes.models.User;
-import com.vermillioncupcakes.repository.UserRepository;
 import com.vermillioncupcakes.service.UserService;
 
 @RestController
-@RequestMapping("/api/usuarios")
+@RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:4200")  // Para integração com Angular
 public class UserController {
 
@@ -32,10 +31,11 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userService.saveUser(user);
-    }
+    @PostMapping("/register")
+    public ResponseEntity<String> registerUser(@RequestBody User user) {
+        userService.save(user);
+        return ResponseEntity.ok("Usuário registrado com sucesso!");
+    }    
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
@@ -52,7 +52,7 @@ public class UserController {
             user.setEmail(updatedUser.getEmail());
             user.setPassword(updatedUser.getPassword());
             user.setPhoneNumber(updatedUser.getPhoneNumber());
-            return ResponseEntity.ok(userService.saveUser(user));
+            return ResponseEntity.ok(userService.save(user));
         } else {
             return ResponseEntity.notFound().build();
         }

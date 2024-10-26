@@ -10,7 +10,6 @@ export const routes: Routes = [
     { path: 'sobre', component: AboutComponent },
     { path: 'cardapio', component: MenuComponent },
     { path: 'duvidas', component: FaqComponent },
-    { path: 'cadastro', component: RegisterComponent }
-
-    // { path: '**', redirectTo: '' }
+    { path: 'cadastro', component: RegisterComponent},
+    { path: '**', redirectTo: '' }
 ];

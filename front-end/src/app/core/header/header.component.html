@@ -9,32 +9,32 @@
         </div>
         <div class="user-actions">
             <div class="user-icon">
-                <a routerLink="/cadastro"><img src="assets/img/user.png" alt="Login">
-                <span id="login">Minha Conta</span></a>
+                <img src="assets/img/user.png" alt="Login">
+                <a routerLink="/cadastro"><span id="login">Minha Conta</span></a>
             </div>
             <div class="cart-icon">
-                <a routerLink="/carrinho"><img src="assets/img/cart.png" alt="Carrinho">
-                <span id="cart-value">0 itens<br>R$0.00</span></a>
+                <img src="assets/img/cart.png" alt="Carrinho">
+                <a routerLink="/carrinho"><span id="cart-value">0 itens<br>R$0.00</span></a>
             </div>
         </div>
     </div>
     <div class="nav-container">
         <nav>
             <ul>
-                <li><a routerLink="">Home</a></li>
-                <li><a routerLink="/sobre">Sobre</a></li>
-                <li class="dropdown">
+                <li id="home"><a routerLink="">Home</a></li>
+                <li id="sobre"><a routerLink="/sobre">Sobre</a></li>
+                <li class="dropdown" id="cardapio">
                     <a routerLink="/cardapio">Cardápio</a>
                     <ul class="dropdown-content">
-                        <li><a routerLink="/cardapio/#baunilha"> Baunilha</a></li>
-                        <li><a routerLink="/cardapio/#chocolate">Chocolate</a></li>
-                        <li><a routerLink="/cardapio/#coco">Coco</a></li>
-                        <li><a routerLink="/cardapio/#laranja">Laranja</a></li>
-                        <li><a routerLink="/cardapio">Todos</a></li>
+                        <li id="baunilha"><a routerLink="/cardapio/#baunilha"> Baunilha</a></li>
+                        <li id="chocolate"><a routerLink="/cardapio/#chocolate">Chocolate</a></li>
+                        <li id="coco"><a routerLink="/cardapio/#coco">Coco</a></li>
+                        <li id="laranja"><a routerLink="/cardapio/#laranja">Laranja</a></li>
+                        <li id="todos"><a routerLink="/cardapio">Todos</a></li>
                     </ul>
                 </li>
-                <li><a routerLink="/duvidas">Dúvidas</a></li>
-                <li><a routerLink="https://api.whatsapp.com/send?phone=5511900000000">Fale Conosco</a></li>
+                <li id="duvidas"><a routerLink="/duvidas">Dúvidas</a></li>
+                <li id="faleConosco"><a routerLink="https://api.whatsapp.com/send?phone=5511900000000">Fale Conosco</a></li>
             </ul>
         </nav>
     </div>

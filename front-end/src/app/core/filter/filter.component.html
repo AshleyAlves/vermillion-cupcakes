@@ -1,6 +1,6 @@
 <div class="filter-container">
   <h3>Filtrar Cupcakes: </h3>
-  <select [(ngModel)]="selectedCategory">
+  <select [(ngModel)]="selectedCategory" class="custom-select">
     <option value="">Todos</option>
     <option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</option>
   </select>

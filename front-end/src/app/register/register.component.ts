@@ -1,31 +1,44 @@
 import { Component } from '@angular/core';
 import { CoverComponent } from '../core/cover/cover.component';
-import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { User } from '../core/user/user.model';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CoverComponent, FormsModule],
+  imports: [CoverComponent, FormsModule, CommonModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  user = {
-    nome: '',
+  user: User = {
+    id: '',
     email: '',
-    senha: '',
-    telefone: ''
+    address: '',
+    city: '',
+    cpf: '',
+    district: '',
+    fullName: '',
+    houseNumber: '',
+    password: '',
+    phoneNumber: '',
+    zipCode: ''
   };
+
+  successMessage: string = '';
 
   constructor(private http: HttpClient) { }
 
   onSubmit() {
-    this.http.post('http://localhost:8080/api/cadastro', this.user)
+    this.http.post('api/register', this.user)
       .subscribe(response => {
-        console.log('Usuário cadastrado com sucesso!', response);
+        console.log(response);
+        this.successMessage = 'Usuário registrado com sucesso!';
       }, error => {
-        console.error('Erro ao cadastrar o usuário', error);
+        console.error(error);
+        this.successMessage = 'Ocorreu um erro ao registrar o usuário.';
       });
   }
 }

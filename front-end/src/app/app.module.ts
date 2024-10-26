@@ -16,6 +16,7 @@ import { ProductComponent } from './core/product/product.component';
 import { CommonModule } from '@angular/common';
 import { FilterComponent } from './core/filter/filter.component';
 import { FormsModule } from '@angular/forms';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     CoverComponent,
     RegisterComponent,
     ProductComponent,
-    FilterComponent
+    FilterComponent,
+    NgxMaskDirective
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule
   ],
-  providers: [],
+  providers: [provideNgxMask({ /* opções de cfg */ })],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
