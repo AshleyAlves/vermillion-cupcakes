@@ -6,20 +6,8 @@ h1::after{
     top: 521px;
 }
 .formulario {
-    display: flex;
+    display: block;
     text-align: center;
-}
-
-.col:nth-child(1) {
-    max-width: 35%;
-    position: relative;
-    left: -100px;
-}
-
-.col:nth-child(2) {
-    max-width: 39%;
-    position: relative;
-    left: -45px;
 }
 
 ul {
@@ -47,7 +35,7 @@ h3{
 }
 .formulario input{
     background-color: var(--clr-red);
-    width: 488px;
+    max-width: 488px;
     border: solid var(--clr-gold) 2px;
     margin: 10px 0;
     padding: 10px;
@@ -70,3 +58,28 @@ h3{
     padding: 5px 18px;
     margin-top: 10px;
 }
+
+@media only screen and (min-width: 768px){
+    .formulario {
+        display: flex;
+    }
+    .col:nth-child(1) {
+        max-width: 35%;
+        position: relative;
+        left: -100px;
+    }
+    .col:nth-child(2) {
+        max-width: 39%;
+        position: relative;
+        left: -45px;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    #firstContainer{
+        margin-top: 120px;
+    }
+    form{
+        margin-top: 50px;
+    }
+  }

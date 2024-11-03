@@ -58,6 +58,7 @@
   background: var(--clr-gold);
   color: #fff;
 }
+
 body {
   background-color: #fff;
   color: var(--clr-black);
@@ -67,7 +68,8 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
-.container{
+
+.container {
   max-width: 1300px;
   margin: 0 auto;
 }
@@ -76,47 +78,29 @@ h1 {
   font-family: 'Sedan SC';
   font-style: normal;
   font-weight: 400;
-  font-size: 64px;
-  line-height: 89px;
+  font-size: 2.6rem;
+  line-height: 65px;
   color: var(--clr-red);
   text-align: center;
 }
-h1::before {
-  content: url("assets/img/waves.png");
-  display: block;
-  width: 145px;
-  height: 90px;
-  position: absolute;
-  left: -710px;
-  right: 0;
-  margin: 0 auto;
-}
 
-h1::after {
-  content: url("assets/img/waves-1.png");
-  display: block;
-  height: 90px;
-  position: absolute;
-  right: -728px;
-  left: 0;
-  margin: 0 auto;
-}
-p{
-  font-size: 25px;
+
+p {
+  font-size: 1rem;
   font-family: "Sedan";
   font-weight: 400;
   line-height: 34px;
   color: black;
 }
 
-h2{
+h2 {
   font-family: 'Sedan SC';
-  font-size: 54px;
+  font-size: 2.3rem;
   color: var(--clr-red);
   text-align: center;
 }
 
-h3{
+h3 {
   font-family: 'Roboto', sans-serif;
   font-size: 26px;
   color: var(--clr-red);
@@ -124,23 +108,83 @@ h3{
   text-transform: uppercase;
   font-weight: 700;
 }
-.espaco{
-  height: 70px;
+
+.espaco {
+  height: 50px;
 }
+
 .border {
-  width: 2000px;
+  max-width: 2000px;
   height: 7px;
   background: var(--clr-gold);
   border: none !important;
 }
-.background{
+
+.background {
   background-image: url("assets/img/bg.jpg");
   background-size: 2000px 800px;
   background-repeat: no-repeat;
   min-height: 520px;
-  width: 2000px;
+  max-width: 2000px;
   display: flex;
   align-items: center;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+html {
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 768px){
+  h1::before {
+    content: url("assets/img/waves.png");
+    display: block;
+    width: 145px;
+    height: 90px;
+    position: absolute;
+    left: -605px;
+    right: 0;
+    margin: 0 auto;
+    width: 168px;
+  }
+  
+  h1::after {
+    content: url("assets/img/waves-1.png");
+    display: block;
+    height: 90px;
+    position: absolute;
+    right: -610px;
+    left: 0;
+    margin: 0 auto;
+    width: 168px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h1::before {
+    left: -710px;
+  }
+  
+  h1::after {
+    right: -728px;
+  }
+  html {
+    font-size: 25px;
+  }
+  h2{
+    font-size: 2.56rem;
+    line-height: 89px;
+  }
+  p{
+    font-size: 1.25rem;
+  }
+  .espaco {
+    height: 70px;
+  }
+}

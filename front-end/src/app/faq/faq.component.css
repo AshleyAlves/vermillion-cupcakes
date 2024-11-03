@@ -3,7 +3,7 @@
     margin: 20px 0;
 }
 .accordion-item h2 button{
-    font-size: 20px !important;
+    font-size: 0.75rem!important;
     text-transform: uppercase !important;
     font-family: "Roboto", sans-serif;
     color: var(--clr-red);
@@ -30,4 +30,18 @@ h1::before {
 h1::after {
     right: -410px;
     bottom: 363px;
+}
+@media only screen and (min-width: 1024px){
+    .accordion-item h2 button{
+        font-size: 20px !important;
+    }
+}
+@media only screen and (max-width: 767px){
+    .background{
+        background-repeat: repeat;
+    }
+      
+    #firstContainer{
+        margin-top: 120px;
+    }
 }

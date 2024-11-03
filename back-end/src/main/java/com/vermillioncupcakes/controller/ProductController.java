@@ -13,14 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vermillioncupcakes.models.Product;
 import com.vermillioncupcakes.service.ProductService;
 
 @RestController
-@RequestMapping("/api/products")
-@CrossOrigin(origins = "http://localhost:4200")  // Altere para a URL do seu front-end
+@RequestMapping("/api/produtos")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProductController {
 
     @Autowired
@@ -37,13 +38,11 @@ public class ProductController {
         return product.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Método para criar um novo product
     @PostMapping
     public Product criar(@RequestBody Product product) {
         return productService.save(product);
     }
 
-    // Método para atualizar um product existente
     @PutMapping("/{id}")
     public ResponseEntity<Product> update(@PathVariable Long id, @RequestBody Product productUpdated) {
         Optional<Product> productExistente = productService.findById(id);
@@ -60,7 +59,6 @@ public class ProductController {
         }
     }
 
-    // Método para deletar um product
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         Optional<Product> product = productService.findById(id);
@@ -70,5 +68,10 @@ public class ProductController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/pesquisa")
+    public List<Product> searchProducts(@RequestParam String keyword) {
+        return productService.searchProducts(keyword);
     }
 }

@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { FilterComponent } from './core/filter/filter.component';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { SearchComponent } from './core/search/search.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
     RegisterComponent,
     ProductComponent,
     FilterComponent,
-    NgxMaskDirective
+    NgxMaskDirective,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

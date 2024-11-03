@@ -19,23 +19,37 @@
         </div>
     </div>
     <div class="nav-container">
-        <nav>
-            <ul>
-                <li id="home"><a routerLink="">Home</a></li>
-                <li id="sobre"><a routerLink="/sobre">Sobre</a></li>
-                <li class="dropdown" id="cardapio">
-                    <a routerLink="/cardapio">Cardápio</a>
-                    <ul class="dropdown-content">
-                        <li id="baunilha"><a routerLink="/cardapio/#baunilha"> Baunilha</a></li>
-                        <li id="chocolate"><a routerLink="/cardapio/#chocolate">Chocolate</a></li>
-                        <li id="coco"><a routerLink="/cardapio/#coco">Coco</a></li>
-                        <li id="laranja"><a routerLink="/cardapio/#laranja">Laranja</a></li>
-                        <li id="todos"><a routerLink="/cardapio">Todos</a></li>
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation" (click)="toggleMenu()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show': menuOpen}">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item" id="home">
+                            <a class="nav-link" aria-current="page" routerLink="" (click)="toggleMenu()">Home</a>
+                        </li>
+                        <li class="nav-item" id="sobre">
+                            <a class="nav-link" routerLink="/sobre" (click)="toggleMenu()">Sobre</a>
+                        </li>
+                        <li class="nav-item dropdown" id="cardapio">
+                            <a class="nav-link dropdown-toggle" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">Cardápio</a>
+                            <ul class="dropdown-menu">
+                                <li id="baunilha"><a class="dropdown-item" routerLink="/cardapio/#baunilha" (click)="toggleMenu()">Baunilha</a></li>
+                                <li id="chocolate"><a class="dropdown-item" routerLink="/cardapio/#chocolate" (click)="toggleMenu()">Chocolate</a></li>
+                                <li id="coco"><a class="dropdown-item" routerLink="/cardapio/#coco" (click)="toggleMenu()">Coco</a></li>
+                                <li id="laranja"><a class="dropdown-item" routerLink="/cardapio/#laranja" (click)="toggleMenu()">Laranja</a></li>
+                                <li id="todos"><a class="dropdown-item" routerLink="/cardapio" (click)="toggleMenu()">Todos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item" id="duvidas"><a class="nav-link" routerLink="/duvidas" (click)="toggleMenu()">Dúvidas</a></li>
+                        <li class="nav-item" id="faleConosco"><a class="nav-link" routerLink="https://api.whatsapp.com/send?phone=5511900000000" target="_blank">Fale Conosco</a></li>
                     </ul>
-                </li>
-                <li id="duvidas"><a routerLink="/duvidas">Dúvidas</a></li>
-                <li id="faleConosco"><a routerLink="https://api.whatsapp.com/send?phone=5511900000000">Fale Conosco</a></li>
-            </ul>
+                </div>
+            </div>
         </nav>
     </div>
 </header>

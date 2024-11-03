@@ -1,40 +1,30 @@
 h3 {
     color: white;
-    font-size: 22px;
+    font-size: 0.615rem;
 }
 
 .filter-container {
     display: flex;
     text-align: center;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .filter-container select {
-    width: 190px;
+    width: 100px;
     color: black;
     background-color: var(--clr-gold);
     height: 27px;
-    margin: 0 15px;
+    margin: 0 15px 0 0;
     border-radius: 7px;
     border: none;
     padding: 0 15px;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Roboto', sans-serif;
-}
-
-.filter-container::after {
-    content: url("../../../assets/img/caret-down-solid.png");
-    display: block;
-    position: absolute;
-    left: 265px;
-    right: 0;
-    padding-top: 2px;
-    width: 30px;
-    margin: 0 auto;
+    text-align: center;
 }
 
 .filter-container button {
@@ -47,4 +37,48 @@ h3 {
     padding: 0;
     border: none;
     border-radius: 7px;
+    text-align: center;
+}
+
+@media only screen and (min-width: 375px){
+    h3{
+        font-size: 0.715rem;
+    }
+}
+
+@media only screen and (min-width: 425px) {
+    h3{
+        font-size: 1rem;
+    }
+    .filter-container select {
+        font-size: 20px;
+    }
+    .filter-container button {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    .filter-container {
+        align-items: flex-start;
+    }
+    h3 {
+        font-size: 0.846rem;
+    }
+    .filter-container select {
+        width: 190px;
+        margin: 0 15px;
+        font-size: 20px;
+    }
+    .filter-container::after {
+        content: url("../../../assets/img/caret-down-solid.png");
+        display: block;
+        position: absolute;
+        left: 265px;
+        right: 0;
+        padding-top: 2px;
+        width: 30px;
+        margin: 0 auto;
+    }
+    
 }

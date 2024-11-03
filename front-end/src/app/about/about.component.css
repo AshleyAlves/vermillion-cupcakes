@@ -1,9 +1,7 @@
 .row{
-    display: flex;
+    display: block;
 }
-.col{
-    width: 49%;
-}
+
 p{
     text-align: justify;
 }
@@ -13,4 +11,22 @@ h1::before{
 h1::after{
     right: -781px;
     top: 521px;
+}
+
+@media only screen and (min-width: 1024px){
+    .row{
+        display: flex;
+    }
+    .col{
+        width: 49%;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    img{
+        margin-bottom: 50px;
+    }
+    .container{
+        margin-top: 120px;
+    }
 }

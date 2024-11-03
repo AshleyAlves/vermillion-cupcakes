@@ -31,6 +31,9 @@ export class MenuComponent implements OnInit {
         console.error('Erro ao carregar produtos:', error);
       }
     });
+    this.productService.getProductsBySearch().subscribe((products) => {
+      this.products = products;
+    });
   }
 
   filterProductsByCategory(category: string) {

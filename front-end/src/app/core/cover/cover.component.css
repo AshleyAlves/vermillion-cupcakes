@@ -1,8 +1,29 @@
-img{
-    width: 2000px;
-    height: 300px;
-}
-.border{
+.border {
     position: relative;
     bottom: 4px;
+}
+.row{
+    padding: 0 15px;
+}
+.cover {
+    position: absolute;
+    background-repeat: no-repeat;
+    max-width: 2000px;
+    height: 130px;
+    background-size: cover;
+    object-fit: cover;
+    display: block;
+    background-image: url("../../../assets/img/cover.png");
+}
+
+@media only screen and (min-width: 1024px) {
+    .cover {
+        height: 300px;
+    }
+} 
+
+@media only screen and (max-width: 768px){
+    .border{
+        top: 130px;
+    }
 }
