@@ -20,11 +20,11 @@ export class RegisterComponent {
     city: '',
     cpf: '',
     district: '',
-    fullName: '',
-    houseNumber: '',
+    full_name: '',
+    house_number: '',
     password: '',
-    phoneNumber: '',
-    zipCode: ''
+    phone_number: '',
+    zip_code: ''
   };
 
   successMessage: string = '';

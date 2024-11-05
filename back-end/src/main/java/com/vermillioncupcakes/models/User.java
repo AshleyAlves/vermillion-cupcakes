@@ -21,8 +21,8 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, name = "fullName")
-    private String fullName;
+    @Column(nullable = false, name = "full_name")
+    private String full_name;
 
     @Column(nullable = false, unique = true, name = "email")
     private String email;
@@ -30,8 +30,8 @@ public class User implements Serializable {
     @Column(nullable = false, name = "password")
     private String password;
 
-    @Column(nullable = false, name = "phoneNumber")
-    private String phoneNumber;
+    @Column(nullable = false, name = "phone_number")
+    private String phone_number;
 
     @Column(nullable = true, name = "address")
     private String address;
@@ -39,14 +39,14 @@ public class User implements Serializable {
     @Column(nullable = true, name = "cpf")
     private String cpf;
 
-    @Column(nullable = true, name = "houseNumber")
-    private String houseNumber;
+    @Column(nullable = true, name = "house_number")
+    private String house_number;
 
     @Column(nullable = true, name = "district")
     private String district;
 
-    @Column(nullable = true, name = "zipCode")
-    private String zipCode;
+    @Column(nullable = true, name = "zip_code")
+    private String zip_code;
 
     @Column(nullable = true, name = "city")
     private String city;

@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="products-container">
-                <div *ngFor="let product of filteredProducts" class="product-card">
+                <div *ngFor="let product of paginatedProducts" class="product-card">
                   <img [src]="product.imagem" alt="{{product.nome}}" class="product-image">
                   <h2>{{ product.nome }}</h2>
                   <div class="bottom-card">
@@ -28,6 +28,11 @@
                     </div>
                   </div>
                 </div>
+                <div class="pagination-controls">
+                    <button (click)="goToPreviousPage()" [disabled]="currentPage === 1"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i> Anterior</button>
+                    <span>{{ currentPage }} de {{ totalPages }}</span>
+                    <button (click)="goToNextPage()" [disabled]="currentPage === totalPages">Próxima <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
+                  </div>
               </div>
         </div>
     </div>

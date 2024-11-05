@@ -244,7 +244,7 @@ nav ul li .dropdown-content a {
   }
 
   nav ul li {
-    margin: 0 40px;
+    margin: 0 15px;
   }
 
 
@@ -269,6 +269,9 @@ nav ul li .dropdown-content a {
     border-radius: 25px;
     border: 1px solid var(--clr-gold);
     top: 37px;
+  }
+  .navbar-nav{
+    height: 65px;
   }
 
   #home:hover::after {
@@ -414,7 +417,6 @@ nav ul li .dropdown-content a {
 
   nav ul li {
     margin: 0 40px;
-    position: relative;
   }
 
   nav ul li:hover {

@@ -18,22 +18,55 @@ export class MenuComponent implements OnInit {
   filteredProducts: Product[] = [];
   categorias: string[] = [];
   selectedCategory: string = '';
+  paginatedProducts: Product[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 6;
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe({
-      next: (data: Product[]) => {
-        this.products = data;
-        this.filteredProducts = data; // Inicialmente, mostrar todos os produtos
-      },
-      error: (error) => {
-        console.error('Erro ao carregar produtos:', error);
-      }
-    });
+    this.loadProducts();
+    this.updateItemsPerPage();
+    window.addEventListener('resize', this.updateItemsPerPage.bind(this));
     this.productService.getProductsBySearch().subscribe((products) => {
       this.products = products;
     });
+  }
+
+  loadProducts(): void {
+    this.productService.getProducts().subscribe((data: Product[]) => {
+      this.products = data;
+      this.setPage(1);
+    });
+  }
+
+  updateItemsPerPage(): void {
+    const width = window.innerWidth;
+    this.itemsPerPage = width < 768 ? 3 : 6;
+    this.setPage(this.currentPage);
+  }
+
+  setPage(page: number): void {
+    this.currentPage = page;
+    const startIndex = (page - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.paginatedProducts = this.products.slice(startIndex, endIndex);
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.products.length / this.itemsPerPage);
+  }
+
+  goToPreviousPage(): void {
+    if (this.currentPage > 1) {
+      this.setPage(this.currentPage - 1);
+    }
+  }
+
+  goToNextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.setPage(this.currentPage + 1);
+    }
   }
 
   filterProductsByCategory(category: string) {

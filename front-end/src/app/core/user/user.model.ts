@@ -5,9 +5,9 @@ export interface User{
     city: string;
     cpf: string;
     district: string;
-    fullName: string;
-    houseNumber: string;
+    full_name: string;
+    house_number: string;
     password: string;
-    phoneNumber: string;
-    zipCode: string;
+    phone_number: string;
+    zip_code: string;
   }

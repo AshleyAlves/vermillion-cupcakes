@@ -18,6 +18,7 @@ import { FilterComponent } from './core/filter/filter.component';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { SearchComponent } from './core/search/search.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SearchComponent } from './core/search/search.component';
     RouterModule.forRoot(routes), 
     CarouselModule.forRoot(),
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [provideNgxMask({ /* opções de cfg */ })],
   bootstrap: [AppComponent],

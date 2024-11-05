@@ -78,7 +78,7 @@ h1 {
   font-family: 'Sedan SC';
   font-style: normal;
   font-weight: 400;
-  font-size: 2.6rem;
+  font-size: 46px;
   line-height: 65px;
   color: var(--clr-red);
   text-align: center;
@@ -142,6 +142,9 @@ html {
 }
 
 @media only screen and (min-width: 768px){
+  h1{
+    font-size: 2.5rem;
+  }
   h1::before {
     content: url("assets/img/waves.png");
     display: block;
@@ -167,6 +170,9 @@ html {
 }
 
 @media screen and (min-width: 1024px) {
+  h1{
+    font-size: 3.478rem;
+  }
   h1::before {
     left: -710px;
   }
