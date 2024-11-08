@@ -1,0 +1,48 @@
+<app-cover></app-cover>
+<div class="espaco"></div>
+<div class="row">
+    <div class="container">
+        <h1>Meu perfil</h1>
+    </div>
+    <div class="espaco"></div>
+    <div class="profile-container">
+        <h2>Perfil do Usuário</h2>
+        <form [formGroup]="profileForm" (ngSubmit)="onUpdate()">
+          <label for="fullname">Nome Completo</label>
+          <input type="text" id="fullname" formControlName="fullname" class="form-control" />
+
+          <label for="cpf">CPF</label>
+          <input type="text" id="cpf" formControlName="cpf" class="form-control" />
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" formControlName="email" class="form-control" />
+      
+          <label for="phonenumber">Telefone</label>
+          <input type="tel" id="phonenumber" formControlName="phonenumber" class="form-control" />
+      
+          <label for="address">Endereço</label>
+          <input type="text" id="address" formControlName="address" class="form-control" />
+      
+          <label for="city">Cidade</label>
+          <input type="text" id="city" formControlName="city" class="form-control" />
+      
+          <label for="district">Bairro</label>
+          <input type="text" id="district" formControlName="district" class="form-control" />
+      
+          <label for="housenumber">Número da Casa</label>
+          <input type="text" id="housenumber" formControlName="housenumber" class="form-control" />
+      
+          <label for="zipcode">CEP</label>
+          <input type="text" id="zipcode" formControlName="zipcode" class="form-control" />
+      
+          <button type="submit" class="btn btn-primary">Atualizar Dados</button>
+        </form>
+        <div class="favorites"> <h2>Favoritos</h2> 
+            <div class="product-card" *ngFor="let product of favorites"> 
+                <img [src]="product.imagem" alt="{{product.nome}}" class="product-image"> 
+                <h2>{{ product.nome }}</h2> 
+                <p>R$ {{ product.preco }}</p> 
+            </div> 
+        </div>
+      </div>
+</div>

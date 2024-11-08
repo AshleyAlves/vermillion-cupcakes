@@ -33,16 +33,15 @@
         <div class="col">
             <div class="form">
                 <form (ngSubmit)="onSubmit()" #userForm="ngForm">
-                    <input type="text" id="nome" name="nome" placeholder="Nome completo" [(ngModel)]="user.full_name" required class="form-control"><br/>
+                    <input type="text" id="nome" name="nome" placeholder="Nome completo" [(ngModel)]="user.fullname" required class="form-control"><br/>
                     <input type="email" id="email" name="email" placeholder="E-mail" [(ngModel)]="user.email" required class="form-control"><br/>
                     <input type="password" id="senha" name="senha" placeholder="Senha" [(ngModel)]="user.password" required class="form-control"><br/>
-                    <input type="tel" id="telefone" name="telefone" placeholder="(11) 90000-0000" [(ngModel)]="user.phone_number" required class="form-control"><br/>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(11) 90000-0000" [(ngModel)]="user.phonenumber" required class="form-control"><br/>
                     <button type="submit">Cadastrar</button>
                 </form>
             </div>
-            <div *ngIf="successMessage" class="success-message">
-                {{ successMessage }}
-            </div>
+            <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+            <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
         </div>
     </div>
 </div>

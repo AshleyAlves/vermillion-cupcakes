@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SearchComponent } from '../search/search.component';
 import * as bootstrap from 'bootstrap';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -16,14 +17,17 @@ import * as bootstrap from 'bootstrap';
 export class HeaderComponent implements OnInit {
   private apiUrl = 'api/produtos/pesquisa';
   menuOpen: boolean = false;
+  isLoggedIn = false;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }
 
   searchProducts(query: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}?q=${query}`);
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.authService.isLoggedIn$.subscribe(status => { this.isLoggedIn = status; });
+  }
 
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
@@ -31,6 +35,12 @@ export class HeaderComponent implements OnInit {
 
   closeMenu(): void {
     this.menuOpen = false;
+  }
+
+  logout() {
+    this.authService.logout();
+    this.isLoggedIn = false;
+    this.router.navigate(['']);
   }
 }
 

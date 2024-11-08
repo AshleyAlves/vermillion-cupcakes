@@ -34,7 +34,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> findById(@PathVariable Long id) {
-        Optional<Product> product = productService.findById(id);
+        Optional<Product> product = productService.getProductById(id);
         return product.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
@@ -45,7 +45,7 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Product> update(@PathVariable Long id, @RequestBody Product productUpdated) {
-        Optional<Product> productExistente = productService.findById(id);
+        Optional<Product> productExistente = productService.getProductById(id);
         if (productExistente.isPresent()) {
             Product product = productExistente.get();
             product.setNome(productUpdated.getNome());
@@ -61,7 +61,7 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
-        Optional<Product> product = productService.findById(id);
+        Optional<Product> product = productService.getProductById(id);
         if (product.isPresent()) {
             productService.deleteById(id);
             return ResponseEntity.noContent().build();

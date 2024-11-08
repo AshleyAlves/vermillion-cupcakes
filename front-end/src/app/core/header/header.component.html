@@ -10,7 +10,9 @@
         <div class="user-actions">
             <div class="user-icon">
                 <img src="assets/img/user.png" alt="Login">
-                <a routerLink="/cadastro"><span id="login">Minha Conta</span></a>
+                <a *ngIf="isLoggedIn; else loginLink" routerLink="/perfil"><span id="login">Minha Conta</span></a>
+                <ng-template #loginLink> <a routerLink="/cadastro">Minha Conta</a> </ng-template> 
+                <button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
             </div>
             <div class="cart-icon">
                 <img src="assets/img/cart.png" alt="Carrinho">
@@ -22,8 +24,8 @@
         <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation" (click)="toggleMenu()">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenu()">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show': menuOpen}">
@@ -35,18 +37,26 @@
                             <a class="nav-link" routerLink="/sobre" (click)="toggleMenu()">Sobre</a>
                         </li>
                         <li class="nav-item dropdown" id="cardapio">
-                            <a class="nav-link dropdown-toggle" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">Cardápio</a>
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Cardápio</a>
                             <ul class="dropdown-menu">
-                                <li id="baunilha"><a class="dropdown-item" routerLink="/cardapio/#baunilha" (click)="toggleMenu()">Baunilha</a></li>
-                                <li id="chocolate"><a class="dropdown-item" routerLink="/cardapio/#chocolate" (click)="toggleMenu()">Chocolate</a></li>
-                                <li id="coco"><a class="dropdown-item" routerLink="/cardapio/#coco" (click)="toggleMenu()">Coco</a></li>
-                                <li id="laranja"><a class="dropdown-item" routerLink="/cardapio/#laranja" (click)="toggleMenu()">Laranja</a></li>
-                                <li id="todos"><a class="dropdown-item" routerLink="/cardapio" (click)="toggleMenu()">Todos</a></li>
+                                <li id="baunilha"><a class="dropdown-item" routerLink="/cardapio/#baunilha"
+                                        (click)="toggleMenu()">Baunilha</a></li>
+                                <li id="chocolate"><a class="dropdown-item" routerLink="/cardapio/#chocolate"
+                                        (click)="toggleMenu()">Chocolate</a></li>
+                                <li id="coco"><a class="dropdown-item" routerLink="/cardapio/#coco"
+                                        (click)="toggleMenu()">Coco</a></li>
+                                <li id="laranja"><a class="dropdown-item" routerLink="/cardapio/#laranja"
+                                        (click)="toggleMenu()">Laranja</a></li>
+                                <li id="todos"><a class="dropdown-item" routerLink="/cardapio"
+                                        (click)="toggleMenu()">Todos</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item" id="duvidas"><a class="nav-link" routerLink="/duvidas" (click)="toggleMenu()">Dúvidas</a></li>
-                        <li class="nav-item" id="faleConosco"><a class="nav-link" routerLink="https://api.whatsapp.com/send?phone=5511900000000" target="_blank">Fale Conosco</a></li>
+                        <li class="nav-item" id="duvidas"><a class="nav-link" routerLink="/duvidas"
+                                (click)="toggleMenu()">Dúvidas</a></li>
+                        <li class="nav-item" id="faleConosco"><a class="nav-link"
+                                routerLink="https://api.whatsapp.com/send?phone=5511900000000" target="_blank">Fale
+                                Conosco</a></li>
                     </ul>
                 </div>
             </div>

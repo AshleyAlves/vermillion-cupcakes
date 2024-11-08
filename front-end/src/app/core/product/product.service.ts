@@ -26,7 +26,7 @@ export class ProductService {
   }
 
   searchProducts(term: string): Observable<Product[]> {
-    return this.http.get<Product[]>(`/api/products/search?term=${term}`);
+    return this.http.get<Product[]>(`api/produtos/search?term=${term}`);
   }
 
   getProductsBySearch(): Observable<Product[]> {

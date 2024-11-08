@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { User } from '../core/user/user.model';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [CoverComponent, FormsModule, CommonModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
   user: User = {
@@ -20,25 +22,38 @@ export class RegisterComponent {
     city: '',
     cpf: '',
     district: '',
-    full_name: '',
-    house_number: '',
+    fullname: '',
+    housenumber: '',
     password: '',
-    phone_number: '',
-    zip_code: ''
+    phonenumber: '',
+    zipcode: ''
   };
-
+  errorMessage: string = '';
   successMessage: string = '';
+  apiUrl: string = 'api/register';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
 
   onSubmit() {
-    this.http.post('api/register', this.user)
-      .subscribe(response => {
-        console.log(response);
-        this.successMessage = 'Usuário registrado com sucesso!';
-      }, error => {
-        console.error(error);
-        this.successMessage = 'Ocorreu um erro ao registrar o usuário.';
-      });
+    if (this.user.fullname && this.user.email && this.user.password && this.user.phonenumber) {
+      this.http.post<User>(this.apiUrl, this.user).subscribe(
+        (response: User) => {
+          // Utiliza o serviço de autenticação para armazenar o usuário
+          this.authService.login(response);
+          this.successMessage = 'Cadastro realizado com sucesso!';
+          this.errorMessage = '';
+          this.router.navigate(['']);
+        },
+        error => {
+          console.error('Erro da API:', error);
+          this.errorMessage = 'Erro ao realizar o cadastro. Tente novamente mais tarde.';
+          this.successMessage = '';
+        }
+      );
+    } else {
+      console.warn('Campos obrigatórios não preenchidos.');
+      this.errorMessage = 'Preencha todos os campos obrigatórios.';
+      this.successMessage = '';
+    }
   }
 }

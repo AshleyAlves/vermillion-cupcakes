@@ -5,13 +5,15 @@ import { Product } from '../core/product/product.model';
 import { ProductService } from '../core/product/product.service';
 import { FilterComponent } from '../core/filter/filter.component';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
   imports: [ProductComponent, CoverComponent, FilterComponent, CommonModule],
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.css'
+  styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
   products: Product[] = [];
@@ -22,21 +24,20 @@ export class MenuComponent implements OnInit {
   currentPage: number = 1;
   itemsPerPage: number = 6;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private authService: AuthService, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.loadProducts();
     this.updateItemsPerPage();
     window.addEventListener('resize', this.updateItemsPerPage.bind(this));
-    this.productService.getProductsBySearch().subscribe((products) => {
-      this.products = products;
-    });
   }
 
   loadProducts(): void {
     this.productService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
       this.setPage(1);
+    }, error => {
+      console.error('Erro ao carregar produtos:', error);
     });
   }
 
@@ -76,10 +77,17 @@ export class MenuComponent implements OnInit {
       this.filteredProducts = this.products;
     }
   }
+
   adicionarAoCarrinho(product: Product): void {
     console.log(`Cupcake ${product.nome} adicionado ao carrinho`);
   }
+
   adicionarAosFavoritos(product: Product): void {
-    console.log(`Cupcake ${product.nome} adicionado aos favoritos`);
+    const user = this.authService.getUser();
+    const url = `api/usuarios/${user.id}/favoritos/${product.id}`;
+    this.http.put(url, {}).subscribe({
+      next: () => console.log(`Cupcake ${product.nome} adicionado aos favoritos`),
+      error: (err) => console.error(`Erro ao adicionar ${product.nome} aos favoritos:`, err)
+    });
   }
 }

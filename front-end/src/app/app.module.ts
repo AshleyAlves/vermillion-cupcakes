@@ -18,7 +18,7 @@ import { FilterComponent } from './core/filter/filter.component';
 import { FormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { SearchComponent } from './core/search/search.component';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -34,15 +34,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ProductComponent,
     FilterComponent,
     NgxMaskDirective,
-    SearchComponent
+    SearchComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes), 
     CarouselModule.forRoot(),
     CommonModule,
-    FormsModule,
-    NgxPaginationModule
+    FormsModule
   ],
   providers: [provideNgxMask({ /* opções de cfg */ })],
   bootstrap: [AppComponent],
