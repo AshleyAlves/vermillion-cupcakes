@@ -6,6 +6,7 @@ import { FaqComponent } from './faq/faq.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './services/auth.guard';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -14,5 +15,6 @@ export const routes: Routes = [
     { path: 'duvidas', component: FaqComponent },
     { path: 'cadastro', component: RegisterComponent},
     { path: 'perfil', component: ProfileComponent, canActivate: [AuthGuard] },
+    { path: 'login', component: LoginComponent},
     { path: '**', redirectTo: '' }
 ];

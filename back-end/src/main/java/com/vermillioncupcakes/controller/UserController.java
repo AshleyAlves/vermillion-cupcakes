@@ -94,4 +94,13 @@ public class UserController {
         }
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<User> loginUser(@RequestBody User user) {
+        Optional<User> userOptional = userService.getUserByEmailAndPassword(user.getEmail(), user.getPassword());
+        if (userOptional.isPresent()) {
+            return ResponseEntity.ok(userOptional.get());
+        } else {
+            return ResponseEntity.status(401).build();
+        }
+    }
 }

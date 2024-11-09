@@ -38,6 +38,7 @@ export class ProfileComponent implements OnInit {
       phonenumber: ['', Validators.required],
       address: [''],
       city: [''],
+      cpf: [''],
       district: [''],
       housenumber: [''],
       zipcode: ['']
@@ -49,7 +50,7 @@ export class ProfileComponent implements OnInit {
     if (savedUser) {
       this.user = JSON.parse(savedUser);
       this.profileForm.patchValue(this.user);
-      this.favorites = this.authService.getFavorites();
+      // this.favorites = this.authService.getFavorites();
     }
   }
 

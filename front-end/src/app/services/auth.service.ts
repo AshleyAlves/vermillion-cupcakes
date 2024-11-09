@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { Product } from '../core/product/product.model';
+import { User } from '../core/user/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +12,20 @@ export class AuthService {
   private isLoggedIn = new BehaviorSubject<boolean>(false);
   public isLoggedIn$ = this.isLoggedIn.asObservable();
 
-  constructor(private router: Router) {
+  private apiUrl = '/api/login';
+
+  constructor(private http: HttpClient, private router: Router) {
     this.isLoggedIn.next(!!localStorage.getItem('isLoggedIn'));
   }
 
-  login(user: any): void {
-    localStorage.setItem('isLoggedIn', 'true');
-    localStorage.setItem('user', JSON.stringify(user));
-    this.isLoggedIn.next(true);
+  login(credentials: { email: string, password: string }): Observable<User> {
+    return this.http.post<User>(this.apiUrl, credentials).pipe(
+      tap(response => {
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('user', JSON.stringify(response));
+        this.isLoggedIn.next(true);
+      })
+    );
   }
 
   logout(): void {
@@ -33,19 +41,5 @@ export class AuthService {
 
   checkLoginStatus(): boolean {
     return this.isLoggedIn.getValue();
-  }
-
-  addFavorite(product: Product): void {
-    const user = this.getUser();
-    if (!user.favorites) {
-      user.favorites = [];
-    }
-    user.favorites.push(product);
-    localStorage.setItem('user', JSON.stringify(user));
-  }
-
-  getFavorites(): Product[] {
-    const user = this.getUser();
-    return user.favorites || [];
   }
 }

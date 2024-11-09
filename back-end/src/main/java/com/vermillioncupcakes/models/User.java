@@ -54,5 +54,4 @@ public class User implements Serializable {
     private String city;
 
     @ManyToMany private Set<Product> favorites;
-
 }
