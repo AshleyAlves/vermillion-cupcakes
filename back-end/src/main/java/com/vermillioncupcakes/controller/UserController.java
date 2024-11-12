@@ -2,6 +2,8 @@ package com.vermillioncupcakes.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -79,18 +81,27 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    @PutMapping("/usuario/{userId}/favoritos/{produtoId}")
-    public ResponseEntity<User> addFavorite(@PathVariable Long userId, @PathVariable Long produtoId) {
-        Optional<User> userOptional = userService.getUserById(userId);
-        Optional<Product> productOptional = productService.getProductById(produtoId);
-
-        if (userOptional.isPresent() && productOptional.isPresent()) {
-            User user = userOptional.get();
-            user.getFavorites().add(productOptional.get());
-            userService.save(user);
-            return ResponseEntity.ok(user);
+    @PutMapping("/{userId}/favoritos/{productId}")
+    public ResponseEntity<Void> addToFavorites(@PathVariable Long userId, @PathVariable Long productId) {
+        boolean added = userService.addProductToFavorites(userId, productId);
+        if (added) {
+            return ResponseEntity.ok().build();
         } else {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.status(400).build();
+        }
+    }
+
+    @GetMapping("/{userId}/favoritos")
+    public ResponseEntity<Set<Product>> getFavorites(@PathVariable Long userId) {
+        Optional<Set<Long>> favoriteProductIds = userService.getFavorites(userId);
+        if (favoriteProductIds.isPresent()) {
+            Set<Product> favoriteProducts = favoriteProductIds.get().stream()
+                    .map(productId -> productService.getProductById(productId).orElse(null))
+                    .filter(product -> product != null)
+                    .collect(Collectors.toSet());
+            return ResponseEntity.ok(favoriteProducts);
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 

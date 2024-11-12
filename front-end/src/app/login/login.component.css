@@ -1,0 +1,64 @@
+.formulario {
+    text-align: center;
+}
+
+form {
+    margin: 0 auto;
+    max-width: 490px;
+}
+
+form input {
+    background-color: var(--clr-red);
+    max-width: 488px;
+    border: solid var(--clr-gold) 2px;
+    margin: 10px 0;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.button {
+    text-align: center;
+}
+
+form button {
+    background-color: var(--clr-gold);
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    border-radius: 7px;
+    padding: 5px 18px;
+    margin-top: 10px;
+}
+
+form button:active {
+    background-color: var(--clr-red);
+}
+
+form input::placeholder {
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.errorMessage {
+    text-align: center;
+}
+
+.errorMessage p {
+    background-color: var(--clr-red);
+    padding: 10px;
+    margin: 25px auto 0;
+    max-width: 490px;
+    color: white;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+@media only screen and (min-width: 1024px) {
+    .container {
+        margin-top: 299px;
+    }
+}

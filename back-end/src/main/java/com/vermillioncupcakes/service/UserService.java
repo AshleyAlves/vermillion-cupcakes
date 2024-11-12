@@ -2,6 +2,7 @@ package com.vermillioncupcakes.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,4 +35,22 @@ public class UserService {
     public Optional<User> getUserByEmailAndPassword(String email, String password) {
         return usersRepository.findByEmailAndPassword(email, password);
     }
+
+    public boolean addProductToFavorites(Long userId, Long productId) {
+        Optional<User> userOptional = usersRepository.findById(userId);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            user.getFavoriteProductIds().add(productId); // Armazenar ID do produto
+            usersRepository.save(user);
+            return true;
+        }
+        return false;
+    }
+
+    public Optional<Set<Long>> getFavorites(Long userId) {
+        Optional<User> userOptional = usersRepository.findById(userId);
+        return userOptional.map(User::getFavoriteProductIds);
+    }
+
+    
 }

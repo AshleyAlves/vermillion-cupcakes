@@ -7,6 +7,8 @@ import { FilterComponent } from '../core/filter/filter.component';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
+import { CartService } from '../services/cart.service';
+import { FavoriteService } from '../services/favorite.service';
 
 @Component({
   selector: 'app-menu',
@@ -23,13 +25,16 @@ export class MenuComponent implements OnInit {
   paginatedProducts: Product[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 6;
+  message: string = '';
 
-  constructor(private productService: ProductService, private authService: AuthService, private http: HttpClient) {}
+  constructor(private productService: ProductService, private authService: AuthService, private http: HttpClient, private cartService: CartService, private favoriteService: FavoriteService) {}
 
   ngOnInit(): void {
     this.loadProducts();
     this.updateItemsPerPage();
     window.addEventListener('resize', this.updateItemsPerPage.bind(this));
+    this.cartService.productAdded.subscribe(() => { this.showConfirmationMessage('Produto adicionado ao carrinho com sucesso'); });
+    this.favoriteService.productAddedToFavorites.subscribe(() => { this.showConfirmationMessage('Produto adicionado aos favoritos com sucesso'); });
   }
 
   loadProducts(): void {
@@ -77,17 +82,25 @@ export class MenuComponent implements OnInit {
       this.filteredProducts = this.products;
     }
   }
-
-  adicionarAoCarrinho(product: Product): void {
-    console.log(`Cupcake ${product.nome} adicionado ao carrinho`);
+  adicionarAoCarrinho(product: Product): void { 
+    this.cartService.addToCart(product); 
+    console.log(`Produto ${product.nome} adicionado ao carrinho`); 
   }
 
-  adicionarAosFavoritos(product: Product): void {
-    const user = this.authService.getUser();
-    const url = `api/usuarios/${user.id}/favoritos/${product.id}`;
-    this.http.put(url, {}).subscribe({
-      next: () => console.log(`Cupcake ${product.nome} adicionado aos favoritos`),
-      error: (err) => console.error(`Erro ao adicionar ${product.nome} aos favoritos:`, err)
-    });
+  showConfirmationMessage(message: string): void { 
+    this.message = message; setTimeout(() => this.message = '', 3000);
+  }
+
+  adicionarAosFavoritos(product: Product): void { 
+    const user = this.authService.getUser(); 
+    if (!user || !user.id) { 
+      console.error('Usuário não está logado.'); 
+      return; 
+    } 
+    const productId = String(product.id); 
+    this.favoriteService.addToFavorites(user.id, productId).subscribe({ 
+      next: () => console.log(`Produto ${product.nome} adicionado aos favoritos`), 
+      error: (err) => console.error(`Erro ao adicionar ${product.nome} aos favoritos:`, err) 
+    }); 
   }
 }

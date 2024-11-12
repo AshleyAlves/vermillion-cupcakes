@@ -2,7 +2,7 @@
   background-image: url("../../assets/img/bg-cardapio.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  background-size: 2000px 1315px;
+  background-size: 2000px 1420px;
   background-repeat: no-repeat;
   min-height: 1200px;
 }
@@ -127,6 +127,16 @@ button {
   margin-left: 10px;
 }
 
+.alert {
+  text-align: center;
+  background-color: var(--clr-gold);
+  padding: 10px;
+  max-width: 430px;
+  color: white;
+  border-radius: 8px;
+  font-size: 0.7rem;
+}
+
 @media only screen and (min-width: 375px) {
   .product-card {
     width: 295px;
@@ -163,6 +173,6 @@ button {
 
 @media only screen and (min-width: 375px) and (max-width: 767px) {
   .cupcakes {
-    background-size: 2000px 1475px;
+    background-size: 2000px 1558px;
   }
 }

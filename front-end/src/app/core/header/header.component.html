@@ -14,9 +14,9 @@
                 <ng-template #loginLink> <a routerLink="/cadastro">Minha Conta</a> </ng-template> 
                 <button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
             </div>
-            <div class="cart-icon">
-                <img src="assets/img/cart.png" alt="Carrinho">
-                <a routerLink="/carrinho"><span id="cart-value">0 itens<br>R$0.00</span></a>
+            <div class="cart-icon"> 
+                <img src="assets/img/cart.png" alt="Carrinho"> 
+                <a [routerLink]="['/carrinho']"><span id="cart-value">{{ totalQuantity }} itens<br>R${{ totalPrice.toFixed(2) }}</span></a> 
             </div>
         </div>
     </div>

@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { CoverComponent } from '../core/cover/cover.component';
 import { Product } from '../core/product/product.model';
 import { AuthService } from '../services/auth.service';
+import { FavoriteService } from '../services/favorite.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,22 +18,10 @@ import { AuthService } from '../services/auth.service';
 })
 export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
-  user: User = {
-    id: '',
-    email: '',
-    address: '',
-    city: '',
-    cpf: '',
-    district: '',
-    fullname: '',
-    housenumber: '',
-    password: '',
-    phonenumber: '',
-    zipcode: ''
-  };
+  user: any;
   favorites: Product[] = [];
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private authService: AuthService, private favoriteService: FavoriteService, private cartService: CartService) {
     this.profileForm = this.fb.group({
       fullname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -50,7 +40,13 @@ export class ProfileComponent implements OnInit {
     if (savedUser) {
       this.user = JSON.parse(savedUser);
       this.profileForm.patchValue(this.user);
-      // this.favorites = this.authService.getFavorites();
+      if (this.user && this.user.id) {
+        this.favoriteService.getFavorites(this.user.id).subscribe({
+          next: (favorites) => { this.favorites = favorites;        
+          },
+          error: (err) => console.error('Erro ao carregar favoritos:', err)
+        });
+      }
     }
   }
 
@@ -63,5 +59,21 @@ export class ProfileComponent implements OnInit {
         error: () => alert('Erro ao atualizar dados. Tente novamente.')
       });
     }
+  }
+  adicionarAoCarrinho(product: Product): void { 
+    this.cartService.addToCart(product); 
+    console.log(`Produto ${product.nome} adicionado ao carrinho`);
+  }
+
+  removerDosFavoritos(product: Product): void { 
+    if (this.user && this.user.id) { 
+      this.favoriteService.removeFromFavorites(this.user.id, String(product.id)).subscribe({ 
+        next: () => { 
+          console.log(`Produto ${product.nome} removido dos favoritos`); 
+          this.favorites = this.favorites.filter(p => p.id !== product.id); 
+        }, 
+        error: (err) => console.error(`Erro ao remover ${product.nome} dos favoritos:`, err) 
+      }); 
+    } 
   }
 }

@@ -1,14 +1,15 @@
 package com.vermillioncupcakes.models;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -53,5 +54,15 @@ public class User implements Serializable {
     @Column(nullable = true, name = "city")
     private String city;
 
-    @ManyToMany private Set<Product> favorites;
+    @ElementCollection
+    private Set<Long> favoriteProductIds = new HashSet<>(); 
+
+    public Set<Long> getFavoriteProductIds() {
+        return favoriteProductIds;
+    }
+
+    public void setFavoriteProductIds(Set<Long> favoriteProductIds) {
+        this.favoriteProductIds = favoriteProductIds;
+    }
+
 }

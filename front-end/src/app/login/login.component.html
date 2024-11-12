@@ -1,31 +1,32 @@
 <app-cover></app-cover>
-<div class="espaco"></div>
 <div class="container">
+  <div class="espaco"></div>
   <h1>Login</h1>
   <div class="espaco"></div>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="email">E-mail</label>
-      <input type="email" id="email" formControlName="email" class="form-control" />
-      <div *ngIf="email?.touched && email?.dirty && email?.errors">
-        <p *ngIf="email?.errors?.['required']">O e-mail é obrigatório.</p>
-        <p *ngIf="email?.errors?.['email']">Insira um e-mail válido.</p>
+  <div class="formulario">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div>
+        <input type="email" id="email" placeholder="E-mail" formControlName="email" class="form-control" />
+        <div *ngIf="email?.touched && email?.dirty && email?.errors">
+          <p *ngIf="email?.errors?.['required']">O e-mail é obrigatório.</p>
+          <p *ngIf="email?.errors?.['email']">Insira um e-mail válido.</p>
+        </div>
       </div>
-    </div>
-
-    <div>
-      <label for="password">Senha</label>
-      <input type="password" id="password" formControlName="password" class="form-control" />
-      <div *ngIf="password?.touched && password?.dirty && password?.errors">
-        <p *ngIf="password?.errors?.['required']">A senha é obrigatória.</p>
-        <p *ngIf="password?.errors?.['minlength']">A senha deve ter no mínimo 8 caracteres.</p>
+  
+      <div>
+        <input type="password" id="password" placeholder="Senha" formControlName="password" class="form-control" />
+        <div *ngIf="password?.touched && password?.dirty && password?.errors">
+          <p *ngIf="password?.errors?.['required']">A senha é obrigatória.</p>
+          <p *ngIf="password?.errors?.['minlength']">A senha deve ter no mínimo 8 caracteres.</p>
+        </div>
       </div>
+  
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  
+    <div *ngIf="errorMessage" class="errorMessage">
+      <p>{{ errorMessage }}</p>
     </div>
-
-    <button type="submit" class="btn btn-primary">Login</button>
-  </form>
-
-  <div *ngIf="errorMessage">
-    <p>{{ errorMessage }}</p>
   </div>
+  <div class="espaco"></div>
 </div>

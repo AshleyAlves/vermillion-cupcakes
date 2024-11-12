@@ -1,0 +1,74 @@
+form {
+    max-width: 490px;
+}
+
+form label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: var(--clr-red);
+    text-align: center;
+}
+
+form input {
+    background-color: var(--clr-red);
+    max-width: 488px;
+    border: solid var(--clr-gold) 2px;
+    margin: 10px 0;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+.button{
+    text-align: center;
+}
+form button {
+    background-color: var(--clr-gold);
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    border-radius: 7px;
+    padding: 5px 18px;
+    margin-top: 10px;
+}
+
+.profile-container {
+    margin: 0 auto;
+    width: 525px;
+}
+
+
+@media only screen and (max-width: 767px) {
+    #firstContainer {
+        margin-top: 120px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .form-flex {
+        display: flex;
+    }
+
+    #district {
+        width: 345px;
+    }
+
+    .col:nth-child(2) {
+        text-align: right;
+    }
+
+    #housenumber {
+        width: 100px;
+        float: right;
+    }
+
+    #city {
+        width: 325px;
+    }
+
+    #zipcode {
+        width: 150px;
+        float: right;
+    }
+}
