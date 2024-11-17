@@ -1,16 +1,26 @@
+<app-cover></app-cover>
 <div class="container">
+  <div class="espaco"></div>
   <h1>Carrinho</h1>
+  <div class="espaco"></div>
   <div *ngIf="cartItems.length === 0">
     <p>Seu carrinho está vazio.</p>
   </div>
-  <div *ngIf="cartItems.length > 0">
+  <div *ngIf="cartItems.length > 0" class="itens">
     <ul>
       <li *ngFor="let item of cartItems">
-        <span>{{ item.nome }} - R${{ item.preco.toFixed(2) }}</span>
+        <img [src]="item.imagem" alt="{{ item.nome }}" width="100">
+        <h2>{{ item.nome }}</h2>
+        <h3>R${{ item.preco.toFixed(2) }}</h3>
       </li>
     </ul>
+    <div class="espaco"></div>
     <p>Total de itens: {{ totalQuantity }}</p>
     <p>Total: R${{ totalPrice.toFixed(2) }}</p>
-    <button (click)="clearCart()">Limpar Carrinho</button>
+    <div class="buttons">
+      <button (click)="clearCart()">Limpar Carrinho</button><br>
+      <a routerLink="/checkout"><button>Finalizar pedido</button></a>
+    </div>
   </div>
+  <div class="espaco"></div>
 </div>

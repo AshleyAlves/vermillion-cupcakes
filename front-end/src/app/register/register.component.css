@@ -54,8 +54,7 @@ h3 {
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
 }
-
-.formulario button {
+ button {
     background-color: var(--clr-gold);
     color: white;
     font-size: 20px;
@@ -98,7 +97,22 @@ form button:active {
     background-color: var(--clr-red);
 }
 
+#firstContainer {
+    margin-top: 120px;
+}
+.login{
+    text-align: center;
+}
+
 @media only screen and (min-width: 768px) {
+    h1::after {
+        right: -385px;
+        top: 412px;
+    }
+    
+    h1::before {
+        left: -385px;
+    }
     .formulario {
         display: flex;
     }
@@ -114,14 +128,22 @@ form button:active {
         position: relative;
         left: -45px;
     }
+     #firstContainer {
+        margin-top: 130px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
-    #firstContainer {
-        margin-top: 120px;
-    }
-
     form {
         margin-top: 50px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width:1023px){
+    .formulario{
+        justify-content: center;
+    }
+    #nome{
+        margin-top: 0;
     }
 }

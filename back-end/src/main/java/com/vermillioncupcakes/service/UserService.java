@@ -52,5 +52,14 @@ public class UserService {
         return userOptional.map(User::getFavoriteProductIds);
     }
 
-    
+    public boolean removeProductFromFavorites(Long userId, Long productId) { 
+        Optional<User> userOptional = usersRepository.findById(userId); 
+        if (userOptional.isPresent()) { 
+            User user = userOptional.get();
+            if (user.getFavoriteProductIds().remove(productId)) { 
+                usersRepository.save(user); 
+                return true; 
+            } 
+        } return false; 
+    }
 }

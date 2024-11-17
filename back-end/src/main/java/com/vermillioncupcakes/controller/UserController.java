@@ -105,6 +105,16 @@ public class UserController {
         }
     }
 
+    @DeleteMapping("/{userId}/favoritos/{productId}") 
+    public ResponseEntity<Void> removeFromFavorites(@PathVariable Long userId, @PathVariable Long productId) { 
+        boolean removed = userService.removeProductFromFavorites(userId, productId); 
+        if (removed) { 
+            return ResponseEntity.ok().build(); 
+        } else { 
+            return ResponseEntity.status(400).build(); 
+        } 
+}
+
     @PostMapping("/login")
     public ResponseEntity<User> loginUser(@RequestBody User user) {
         Optional<User> userOptional = userService.getUserByEmailAndPassword(user.getEmail(), user.getPassword());

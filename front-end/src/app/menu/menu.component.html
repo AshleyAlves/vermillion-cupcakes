@@ -18,24 +18,28 @@
         <div class="row">
             <div class="products-container">
                 <div *ngFor="let product of paginatedProducts" class="product-card">
-                  <img [src]="product.imagem" alt="{{product.nome}}" class="product-image">
-                  <h2>{{ product.nome }}</h2>
-                  <div class="bottom-card">
-                    <p>R$ {{ product.preco }}</p>
-                    <div class="buttons">
-                      <button (click)="adicionarAosFavoritos(product)"><i class="fa-solid fa-heart fa-xl" style="color: #830000;"></i></button>
-                      <button (click)="adicionarAoCarrinho(product)"><i class="fa-solid fa-cart-shopping fa-xl" style="color: #DAA520;"></i></button>
+                    <img [src]="product.imagem" alt="{{product.nome}}" class="product-image">
+                    <h2>{{ product.nome }}</h2>
+                    <div class="bottom-card">
+                        <p>R$ {{ product.preco }}</p>
+                        <div class="buttons">
+                            <button (click)="adicionarAosFavoritos(product)"><i class="fa-solid fa-heart fa-xl"
+                                    style="color: #830000;"></i></button>
+                            <button (click)="adicionarAoCarrinho(product)"><i class="fa-solid fa-cart-shopping fa-xl"
+                                    style="color: #DAA520;"></i></button>
+                        </div>
                     </div>
-                  </div>
                 </div>
                 <div *ngIf="message" class="alert"> {{ message }} </div>
-                <div class="pagination-controls">
-                    <button (click)="goToPreviousPage()" [disabled]="currentPage === 1"><i class="fa-solid fa-chevron-left" style="color: #ffffff;"></i> Anterior</button>
-                    <span>{{ currentPage }} de {{ totalPages }}</span>
-                    <button (click)="goToNextPage()" [disabled]="currentPage === totalPages">Próxima <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
-                  </div>
-              </div>
-              
+            </div>
+            <div class="espaco"></div>
+            <div class="pagination-controls">
+                <button (click)="goToPreviousPage()" [disabled]="currentPage === 1"><i class="fa-solid fa-chevron-left"
+                        style="color: #ffffff;"></i> Anterior</button>
+                <span>{{ currentPage }} de {{ totalPages }}</span>
+                <button (click)="goToNextPage()" [disabled]="currentPage === totalPages">Próxima <i
+                        class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
+            </div>
         </div>
     </div>
 </div>

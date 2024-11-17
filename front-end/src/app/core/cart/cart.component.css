@@ -1,0 +1,70 @@
+p {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.3rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: var(--clr-gold);
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    border-radius: 7px;
+    padding: 5px 18px;
+    margin-top: 10px;
+}
+
+.itens {
+    text-align: center;
+}
+
+img {
+    float: left;
+    margin-right: 10px;
+}
+
+.container {
+    margin-top: 120px;
+}
+
+h1::after {
+    right: -390px;
+    bottom: 412px;
+}
+
+h1::before {
+    left: -390px;
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        margin-top: 130px;
+    }
+
+    ul li {
+        margin-bottom: 30px;
+        height: 175px;
+    }
+
+    img {
+        margin-left: 100px;
+        width: 160px;
+    }
+
+}

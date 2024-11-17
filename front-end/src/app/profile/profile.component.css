@@ -1,74 +1,186 @@
+h1::after {
+  right: -445px;
+  bottom: 412px;
+}
+
+h1::before {
+  left: -445px;
+}
+
+p{
+  text-align: center;
+}
+
 form {
-    max-width: 490px;
+  max-width: 490px;
 }
 
 form label {
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    color: var(--clr-red);
-    text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: var(--clr-red);
+  text-align: center;
 }
 
 form input {
-    background-color: var(--clr-red);
-    max-width: 488px;
-    border: solid var(--clr-gold) 2px;
-    margin: 10px 0;
-    padding: 10px;
-    color: white;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+  background-color: var(--clr-red);
+  max-width: 488px;
+  border: solid var(--clr-gold) 2px;
+  margin: 10px 0;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
 }
-.button{
-    text-align: center;
+
+.button {
+  text-align: center;
 }
+
 form button {
-    background-color: var(--clr-gold);
-    color: white;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
-    border: none;
-    border-radius: 7px;
-    padding: 5px 18px;
-    margin-top: 10px;
+  background-color: var(--clr-gold);
+  color: white;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  border-radius: 7px;
+  padding: 5px 18px;
+  margin-top: 10px;
 }
 
 .profile-container {
-    margin: 0 auto;
-    width: 525px;
+  margin: 0 auto;
+  width: 525px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.product-card {
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  box-sizing: border-box;
+  width: 250px;
+  max-height: 575px;
+  border: 4px solid var(--clr-gold);
+  border-radius: 10px;
+  background-color: #ffffff9c;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card h2 {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  margin: 10px;
+}
+
+.product-image {
+  width: 242px;
+  height: auto;
+  border-radius: 6px;
+}
+
+.product-card button{
+  border: none;
+  background: transparent;
+  padding-bottom: 10px;
+}
+
+button span {
+  color: var(--clr-gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+
+#firstContainer {
+  margin-top: 120px;
 }
 
 
-@media only screen and (max-width: 767px) {
-    #firstContainer {
-        margin-top: 120px;
-    }
+.alert {
+  text-align: center;
+  background-color: var(--clr-gold);
+  padding: 10px;
+  max-width: 430px;
+  color: white;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  border: none;
+  margin: 10px auto;
+}
+
+@media only screen and (min-width: 375px) {
+  .product-card {
+    width: 295px;
+  }
+
+  .product-image {
+    width: 287px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .product-card {
+    width: 295px;
+  }
+
+  .bottom-card {
+    justify-content: center;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    right: -85px;
+  }
+  #firstContainer {
+    margin-top: 130px;
+  }
+
 }
 
 @media only screen and (min-width: 1024px) {
-    .form-flex {
-        display: flex;
-    }
+  .form-flex {
+    display: flex;
+  }
 
-    #district {
-        width: 345px;
-    }
+  #district {
+    width: 345px;
+  }
 
-    .col:nth-child(2) {
-        text-align: right;
-    }
+  .col:nth-child(2) {
+    text-align: right;
+  }
 
-    #housenumber {
-        width: 100px;
-        float: right;
-    }
+  #housenumber {
+    width: 100px;
+    float: right;
+  }
 
-    #city {
-        width: 325px;
-    }
+  #city {
+    width: 325px;
+  }
 
-    #zipcode {
-        width: 150px;
-        float: right;
-    }
+  #zipcode {
+    width: 150px;
+    float: right;
+  }
+  .product-card {
+    width: 382px;
+  }
 }

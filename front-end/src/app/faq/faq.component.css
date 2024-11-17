@@ -1,47 +1,64 @@
-.accordion{
+.accordion {
     --bs-accordion-bg: #ffffffc2 !important;
     margin: 20px 0;
 }
-.accordion-item h2 button{
-    font-size: 0.75rem!important;
+
+.accordion-item h2 button {
+    font-size: 0.75rem !important;
     text-transform: uppercase !important;
     font-family: "Roboto", sans-serif;
     color: var(--clr-red);
     font-weight: 700;
     font-style: normal;
 }
-.accordion-button:not(.collapsed){
+
+.accordion-button:not(.collapsed) {
     background-color: #ffffffc2 !important;
 }
-.accordion-collapse{
+
+.accordion-collapse {
     color: #000000;
     font-family: "Roboto", sans-serif;
     font-size: 18px;
 }
-.accordion-item{
+
+.accordion-item {
     border-color: var(--clr-gold);
 }
-.accordion-button:focus{
+
+.accordion-button:focus {
     box-shadow: none;
 }
-h1::before {
-    left: -405px;
-}
+
 h1::after {
-    right: -410px;
-    bottom: 363px;
+    right: -385px;
+    bottom: 412px;
 }
-@media only screen and (min-width: 1024px){
-    .accordion-item h2 button{
+
+h1::before {
+    left: -385px;
+}
+
+#firstContainer {
+    margin-top: 120px;
+}
+
+@media only screen and (min-width: 768px) {
+    #firstContainer {
+        margin-top: 130px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .accordion-item h2 button {
         font-size: 20px !important;
     }
 }
-@media only screen and (max-width: 767px){
-    .background{
+
+@media only screen and (max-width: 767px) {
+    .background {
         background-repeat: repeat;
     }
-      
-    #firstContainer{
-        margin-top: 120px;
-    }
+
+
 }

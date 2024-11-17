@@ -46,25 +46,30 @@
                 </div>
                 <div class="espaco"></div>
             </form>
-            <div class="favorites">
-                <h2>Favoritos</h2>
-                <div *ngIf="favorites.length === 0"> 
-                    <p>Você não tem nenhum favorito ainda.</p> 
-                </div> 
-                <div *ngIf="favorites.length > 0"> 
-                    <ul> 
-                        <li *ngFor="let favorite of favorites"> 
-                            <img [src]="favorite.imagem" alt="{{favorite.nome}}" class="product-image">
-                            <span>{{ favorite.nome }} - R${{ favorite.preco.toFixed(2) }}</span> 
-                            <div class="bottom-card">
-                                <div class="buttons">
-                                  <button (click)="removerDosFavoritos(favorite)"><i class="fa-solid fa-heart fa-xl" style="color: #830000;"></i></button>
-                                  <button (click)="adicionarAoCarrinho(favorite)"><i class="fa-solid fa-cart-shopping fa-xl" style="color: #DAA520;"></i></button>
-                                </div>
+        </div>
+        <div class="favorites">
+            <h2>Favoritos</h2>
+            <div *ngIf="favorites.length === 0">
+                <p>Você não tem nenhum favorito ainda.</p>
+            </div>
+            <div *ngIf="favorites.length > 0">
+                <ul class="products-container">
+                    <li *ngFor="let favorite of favorites" class="product-card">
+                        <img [src]="favorite.imagem" alt="{{favorite.nome}}" class="product-image">
+                        <h2>{{ favorite.nome }}</h2>
+                        <h2>R${{ favorite.preco.toFixed(2) }}</h2>
+                        <div class="bottom-card">
+                            <div class="buttons">
+                                <button (click)="adicionarAoCarrinho(favorite)"><span>Comprar agora</span><i
+                                    class="fa-solid fa-cart-shopping fa-xl" style="color: #DAA520;"></i></button>
+                                <button (click)="removerDosFavoritos(favorite)"><i class="fa-solid fa-heart-crack fa-xl"
+                                        style="color: #830000;"></i></button>
+                                
                             </div>
-                        </li> 
-                    </ul> 
-                </div>
+                        </div>
+                    </li>
+                </ul>
+                <div *ngIf="message" class="alert alert-success"> {{ message }} </div>
             </div>
         </div>
     </div>

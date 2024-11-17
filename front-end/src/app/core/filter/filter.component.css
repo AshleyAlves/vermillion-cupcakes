@@ -1,13 +1,13 @@
 h3 {
     color: white;
     font-size: 0.615rem;
+    margin-right: 20px;
 }
 
 .filter-container {
     display: flex;
     text-align: center;
     justify-content: center;
-    align-items: center;
 }
 
 .filter-container select {

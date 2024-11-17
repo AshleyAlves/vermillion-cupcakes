@@ -32,43 +32,43 @@
         </div>
         <div class="col">
             <div class="form">
-                <div class="container">
-                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                        <input type="text" id="nome" formControlName="fullname" name="fullname"
-                            placeholder="Nome completo" required class="form-control"><br />
-                        <input type="email" id="email" formControlName="email" name="email" placeholder="E-mail"
-                            required class="form-control"><br />
-                        <input type="password" id="senha" formControlName="password" name="password" placeholder="Senha"
-                            required class="form-control"><br />
-                        <div *ngIf="password?.touched && password?.dirty && password?.errors">
-                            <p *ngIf="password?.errors?.['required']">A senha é obrigatória.</p>
-                            <p *ngIf="password?.errors?.['minlength']">A senha deve ter no mínimo 8 caracteres.</p>
-                            <p *ngIf="password?.errors?.['pattern']?.requiredPattern?.includes('.*[A-Z].*')">A senha
-                                deve conter pelo menos uma letra maiúscula.</p>
-                            <p *ngIf="password?.errors?.['pattern']?.requiredPattern?.includes('.*[a-z].*')">A senha
-                                deve conter pelo menos uma letra minúscula.</p>
-                            <p *ngIf="password?.errors?.['pattern']?.requiredPattern?.includes('.*\\d.*')">A senha deve
-                                conter pelo menos um número.</p>
-                            <p *ngIf="password?.errors?.['pattern']?.requiredPattern?.includes('.*\\W.*')">A senha deve
-                                conter pelo menos um símbolo.</p>
-                        </div>
-                        <input type="tel" id="telefone" formControlName="phonenumber" name="phonenumber"
-                            placeholder="(11) 90000-0000" required class="form-control"><br />
-                        <button type="submit">Cadastrar</button>
-                    </form>
-                    <div class="espaco"></div>
-                    <h3>Já possui cadastro?</h3>
-                    <a routerLink="/login"><button>Login</button></a>
-
-                    <div *ngIf="errorMessage" class="error">
-                        <p>{{ errorMessage }}</p>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <input type="text" id="nome" formControlName="fullname" name="fullname" placeholder="Nome completo"
+                        required class="form-control"><br />
+                    <input type="email" id="email" formControlName="email" name="email" placeholder="E-mail" required
+                        class="form-control"><br />
+                    <input type="password" id="senha" formControlName="password" name="password" placeholder="Senha"
+                        required class="form-control"><br />
+                    <div *ngIf="password?.touched && password?.dirty && password?.errors">
+                        <p *ngIf="password?.errors?.['required']">A senha é obrigatória.</p>
+                        <p *ngIf="password?.errors?.['minlength']">A senha deve ter no mínimo 8 caracteres.</p>
+                        <p *ngIf="password?.errors?.['pattern']?.requiredPattern?.includes('.*[A-Z].*')">A senha
+                            deve conter pelo menos uma letra maiúscula.</p>
+                        <p *ngIf="password?.errors?.['pattern']?.requiredPattern?.includes('.*[a-z].*')">A senha
+                            deve conter pelo menos uma letra minúscula.</p>
+                        <p *ngIf="password?.errors?.['pattern']?.requiredPattern?.includes('.*\\d.*')">A senha deve
+                            conter pelo menos um número.</p>
+                        <p *ngIf="password?.errors?.['pattern']?.requiredPattern?.includes('.*\\W.*')">A senha deve
+                            conter pelo menos um símbolo.</p>
                     </div>
-                    <div *ngIf="successMessage" class="success">
-                        <p>{{ successMessage }}</p>
-                    </div>
+                    <input type="tel" id="telefone" formControlName="phonenumber" name="phonenumber"
+                        placeholder="(11) 90000-0000" required class="form-control"><br />
+                    <button type="submit">Cadastrar</button>
+                </form>
+                <div *ngIf="errorMessage" class="error">
+                    <p>{{ errorMessage }}</p>
+                </div>
+                <div *ngIf="successMessage" class="success">
+                    <p>{{ successMessage }}</p>
                 </div>
             </div>
         </div>
         <div class="espaco"></div>
     </div>
+    <div class="login">
+        <h3>Já possui cadastro?</h3>
+        <a routerLink="/login"><button>Login</button></a>
+        <div class="espaco"></div>
+    </div>
+
 </div>

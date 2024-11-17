@@ -170,6 +170,29 @@ html {
 }
 
 @media screen and (min-width: 1024px) {
+  h1::before {
+    left: -710px;
+  }
+  
+  h1::after {
+    right: -728px;
+  }
+  html {
+    font-size: 25px;
+  }
+  h2{
+    font-size: 2.56rem;
+    line-height: 89px;
+  }
+  p{
+    font-size: 1rem;
+  }
+  .espaco {
+    height: 70px;
+  }
+}
+
+@media screen and (min-width: 1900px) {
   h1{
     font-size: 3.478rem;
   }
@@ -189,8 +212,5 @@ html {
   }
   p{
     font-size: 1.25rem;
-  }
-  .espaco {
-    height: 70px;
   }
 }

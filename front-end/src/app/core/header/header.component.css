@@ -1,7 +1,7 @@
 header {
   background: rgb(29, 1, 1);
   background: linear-gradient(90deg, rgba(29, 1, 1, 1) 0%, rgba(86, 0, 0, 1) 55%);
-  height: 356px;
+  height: 355px;
   font-family: "Roboto", sans-serif;
   color: var(--clr-white);
   font-size: 18px;
@@ -238,7 +238,7 @@ nav ul li .dropdown-content a {
     min-width: 190px;
     min-height: 205px;
     left: 0px;
-    top: 46px;
+    top: 64px;
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 0px 7px 8px 2px rgba(0, 0, 0, 0.25);
   }
@@ -268,26 +268,26 @@ nav ul li .dropdown-content a {
     height: 5px;
     border-radius: 25px;
     border: 1px solid var(--clr-gold);
-    top: 37px;
+    top: 47px;
   }
   .navbar-nav{
     height: 65px;
   }
 
   #home:hover::after {
-    left: 3px;
+    left: 10px;
   }
 
   #sobre:hover::after {
-    left: 7px;
+    left: 13px;
   }
 
   #cardapio:hover::after {
-    left: 22px;
+    left: 28px;
   }
 
   #duvidas:hover::after {
-    left: 13px;
+    left: 21px;
   }
 
   #faleConosco:hover::after {
@@ -317,7 +317,7 @@ nav ul li .dropdown-content a {
 
 @media only screen and (min-width: 1024px) {
   header {
-    height: 145px;
+    height: 223px;
   }
 
   a {
@@ -325,8 +325,7 @@ nav ul li .dropdown-content a {
   }
 
   header .container {
-    height: 135px;
-    display: flex;
+    height: 158px;
     padding: 0 0 10px 20px;
   }
 
@@ -368,11 +367,163 @@ nav ul li .dropdown-content a {
   }
 
   .search-bar {
+    margin: 0 135px 0 70px;
+  }
+
+  .search-bar img {
+    left: -275px;
+  }
+
+  .search-bar input::placeholder {
+    padding-left: 20px;
+  }
+
+  /* Nav */
+  .nav-container {
+    background-color: var(--clr-white);
+    height: 65px;
+    display: flex;
+    align-items: center;
     position: relative;
+    z-index: 1;
+  }
+
+  .nav-container nav {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  nav ul li {
+    margin: 0 40px;
+  }
+
+  .dropdown-menu li {
+    margin: 0 20px !important;
+  }
+
+  nav ul li:hover {
+    cursor: pointer;
+  }
+
+  nav ul li a {
+    color: var(--clr-red);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    line-height: 47px;
+  }
+
+  nav ul li:hover::after {
+    top: 49px;
+  }
+
+  #home:hover::after {
+    left: 13px;
+  }
+
+  #sobre:hover::after {
+    left: 16px;
+  }
+
+  #cardapio:hover::after {
+    left: 31px;
+  }
+
+  #duvidas:hover::after {
+    left: 26px;
+  }
+
+
+  #baunilha {
+    margin-top: 10px;
+  }
+
+  #baunilha:hover::after {
+    left: 44px;
+  }
+
+  #chocolate:hover::after {
+    left: 50px;
+  }
+
+  #coco:hover::after {
+    left: 24px;
+  }
+
+  #laranja:hover::after {
+    left: 39px;
+  }
+
+  #todos:hover::after {
+    left: 27px;
+  }
+
+  nav ul li .dropdown-content a {
+    line-height: 19px;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  header {
+    height: 223px;
+  }
+
+  a {
+    font-size: 1.12rem;
+  }
+
+  header .container {
+    height: 158px;
+    padding: 0 0 10px 20px;
+  }
+
+  header .logo img {
+    width: 127px;
+  }
+
+  .user-actions {
+    display: flex;
+    right: 315px;
+    position: relative;
+    align-items: center;
     top: 0;
     bottom: 0;
-    left: 0;
-    right: 0;
+    flex-grow: 1;
+    margin: 0 100px;
+    max-width: 500px;
+    padding: 0px 0 0 163px;
+  }
+
+  .user-actions img {
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+  .user-icon {
+    width: 200px;
+    margin: 0 20px;
+  }
+
+  .cart-icon {
+    align-items: center;
+    margin: 0 8px;
+    width: 200px;
+  }
+
+  .cart-icon a {
+    margin-left: 8px;
+  }
+
+  .search-bar {
     margin: 0 150px 0 150px;
   }
 
@@ -511,7 +662,6 @@ nav ul li .dropdown-content a {
     line-height: 19px;
   }
 }
-
 
 @media only screen and (max-width: 767px) {
   .navbar-toggler-icon {

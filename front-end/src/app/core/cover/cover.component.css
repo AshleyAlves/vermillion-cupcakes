@@ -18,12 +18,22 @@
 
 @media only screen and (min-width: 1024px) {
     .cover {
+        height: 210px;
+    }
+    .border{
+        top: 210px;
+    }
+} 
+
+@media only screen and (min-width: 1480px) {
+    .cover {
         height: 300px;
     }
     .border{
         top: 299px;
     }
 } 
+
 
 @media only screen and (max-width: 768px){
     .border{

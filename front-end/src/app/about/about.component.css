@@ -12,21 +12,42 @@ h1::after{
     right: -781px;
     top: 521px;
 }
-
+.container{
+    margin-top: 120px;
+}
+@media only screen and (min-width: 768px){
+    .container{
+        margin-top: 130px;
+    }
+    h1::before{
+        left: -620px;
+    }
+    h1::after{
+        right: -620px;
+        top: 411px;
+    }
+}
 @media only screen and (min-width: 1024px){
+    .container{
+        margin-top: 210px;
+    }
     .row{
         display: flex;
     }
     .col{
         width: 49%;
     }
+    h1::before{
+        left: -770px;
+    }
+    h1::after{
+        right: -770px;
+        top: 509px;
+    }
 }
 
 @media only screen and (max-width: 767px){
     img{
         margin-bottom: 50px;
-    }
-    .container{
-        margin-top: 120px;
     }
 }

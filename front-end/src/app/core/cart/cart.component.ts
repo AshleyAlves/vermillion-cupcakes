@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { Product } from '../product/product.model';
+import { RouterLink } from '@angular/router';
+import { CoverComponent } from '../cover/cover.component';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, CoverComponent],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })

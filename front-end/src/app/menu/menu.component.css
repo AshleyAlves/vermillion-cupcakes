@@ -1,3 +1,6 @@
+#firstContainer {
+  margin-top: 120px;
+}
 .cupcakes {
   background-image: url("../../assets/img/bg-cardapio.jpg");
   background-repeat: no-repeat;
@@ -37,12 +40,12 @@ label {
 }
 
 h1::after {
-  right: -425px;
-  bottom: 363px;
+  right: -385px;
+  bottom: 412px;
 }
 
 h1::before {
-  left: -430px;
+  left: -385px;
 }
 
 h2 {
@@ -108,7 +111,6 @@ button {
 
 .pagination-controls {
   text-align: center;
-  margin-bottom: 10px;
   background-color: var(--clr-gold);
 }
 
@@ -148,8 +150,40 @@ button {
 }
 
 @media only screen and (min-width: 768px) {
+  #firstContainer {
+    margin-top: 130px;
+  }
   .product-card {
-    width: 382px;
+    width: 295px;
+  }
+
+  .bottom-card {
+    justify-content: center;
+  }
+
+  .buttons {
+    right: -58px;
+  }
+
+  .bottom-card p {
+    color: var(--clr-gold);
+    font-size: 1.2rem;
+  }
+  .cupcakes{
+    background-size: 2000px 1510px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #firstContainer {
+    margin-top: 210px;
+  }
+  .product-card {
+    width: 330px;
+  }
+
+  .product-image {
+    width: 322px;
   }
 
   .bottom-card {
@@ -163,11 +197,19 @@ button {
   .bottom-card p {
     color: var(--clr-gold);
   }
+  h1::after {
+    right: -425px;
+    bottom: 314px;
+  }
+  
+  h1::before {
+    left: -430px;
+  }
 }
 
-@media only screen and (max-width: 767px) {
-  #firstContainer {
-    margin-top: 120px;
+@media only screen and (min-width: 1400px) {
+  .product-card {
+    width: 382px;
   }
 }
 
