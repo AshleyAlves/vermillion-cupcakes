@@ -103,6 +103,36 @@ header .logo img {
   height: 35px;
 }
 
+.search-results{
+  position: absolute;
+  top: 220px;
+  z-index: 3;
+  background-color: #fff;
+  padding: 15px;
+  width: 285px;
+  border-radius: 10px;
+}
+
+.search-result-item{
+  display: flex;
+  margin-top: 20px;
+}
+
+.search-result-item img{
+  width: 65px;
+}
+
+.search-result-item h3{
+  font-size: 11px;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.search-result-item button{
+  border: none;
+  background-color: transparent;
+  margin-left: 20px;
+}
 
 /* Nav */
 .nav-container {
@@ -190,10 +220,15 @@ nav ul li .dropdown-content a {
   .search-bar img {
     left: -275px;
   }
+  .search-results{
+    left: 42px;
+    width: 290px;
+  }
 
   .user-actions {
     justify-content: center;
   }
+  
 }
 
 @media only screen and (min-width: 425px) {
@@ -226,6 +261,10 @@ nav ul li .dropdown-content a {
     height: 40px;
   }
 
+  .search-results{
+    width: 335px;
+  }
+
   .user-actions {
     justify-content: center;
   }
@@ -254,6 +293,13 @@ nav ul li .dropdown-content a {
 
   .search-bar img {
     left: -280px;
+  }
+
+  
+  .search-results{
+    width: 300px;
+    left: 165px;
+    top: 120px;
   }
 
   nav ul .dropdown-menu {
@@ -413,6 +459,10 @@ nav ul li .dropdown-content a {
     padding-left: 20px;
   }
 
+  .search-results{
+    left: 242px;
+  }
+
   /* Nav */
   .nav-container {
     background-color: var(--clr-white);
@@ -538,6 +588,15 @@ nav ul li .dropdown-content a {
     left: -332px;
   }
 
+  .search-results{
+    left: 270px;
+    width: 350px;
+  }
+
+  .search-result-item h3{
+    font-size: 12px;
+  }
+
   .user-actions {
     padding: 0px 0 0 104px;
   }
@@ -550,6 +609,11 @@ nav ul li .dropdown-content a {
   .search-bar {
     margin: 0 135px 0 135px;
     width: 445px;
+  }
+  
+  .search-results{
+    left: 278px;
+    width: 400px;
   }
   .user-actions{
     margin: 0 0 0 150px;
@@ -566,17 +630,48 @@ nav ul li .dropdown-content a {
   .logo {
     margin-left: 60px;
   }
+  .search-results{
+    left: 391px;
+  }
+  
+  .search-result-item h3{
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1500px){
+  .search-results{
+    left: 440px;
+  }
 }
 
 @media only screen and (min-width:1600px) {
   .logo {
     margin-left: 90px;
   }
+  .search-results{
+    left: 521px;
+  }
 }
 
 @media only screen and (min-width:1700px) {
   .logo {
     margin-left: 110px;
+  }
+  .search-results{
+    left: 591px;
+  }
+}
+
+@media only screen and (min-width: 1800px){
+  .search-results{
+    left: 640px;
+  }
+}
+
+@media only screen and (min-width: 1900px){
+  .search-results{
+    left: 692px;
   }
 }
 

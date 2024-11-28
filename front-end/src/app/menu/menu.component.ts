@@ -40,6 +40,7 @@ export class MenuComponent implements OnInit {
   loadProducts(): void {
     this.productService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
+      this.filteredProducts = data; // Inicializa os produtos filtrados com todos os produtos
       this.setPage(1);
     }, error => {
       console.error('Erro ao carregar produtos:', error);
@@ -56,11 +57,11 @@ export class MenuComponent implements OnInit {
     this.currentPage = page;
     const startIndex = (page - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    this.paginatedProducts = this.products.slice(startIndex, endIndex);
+    this.paginatedProducts = this.filteredProducts.slice(startIndex, endIndex);
   }
 
   get totalPages(): number {
-    return Math.ceil(this.products.length / this.itemsPerPage);
+    return Math.ceil(this.filteredProducts.length / this.itemsPerPage);
   }
 
   goToPreviousPage(): void {
@@ -75,20 +76,23 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  filterProductsByCategory(category: string) {
+  filterProductsByCategory(category: string): void {
     if (category) {
       this.filteredProducts = this.products.filter(product => product.categoria === category);
     } else {
       this.filteredProducts = this.products;
     }
+    this.setPage(1); // Reajusta a paginação após a filtragem
   }
+
   adicionarAoCarrinho(product: Product): void { 
     this.cartService.addToCart(product); 
     console.log(`Produto ${product.nome} adicionado ao carrinho`); 
   }
 
   showConfirmationMessage(message: string): void { 
-    this.message = message; setTimeout(() => this.message = '', 3000);
+    this.message = message; 
+    setTimeout(() => this.message = '', 3000);
   }
 
   adicionarAosFavoritos(product: Product): void { 

@@ -6,10 +6,19 @@ h1::after {
     display: none;
 }
 
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 table {
     background-color: #efefef;
     text-align: center;
-    margin: 0 auto;
+    margin: 20px auto;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 table th,
@@ -22,4 +31,12 @@ table th {
     color: var(--clr-red);
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .table th,
+    .table td {
+        font-size: 14px;
+        padding: 8px;
+    }
 }

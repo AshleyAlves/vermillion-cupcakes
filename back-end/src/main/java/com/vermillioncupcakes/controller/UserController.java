@@ -26,7 +26,7 @@ import com.vermillioncupcakes.service.UserService;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:4200")  // Para integração com Angular
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     @Autowired
@@ -45,7 +45,7 @@ public class UserController {
         User savedUser = userService.save(user);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json; charset=UTF-8");
-        return new ResponseEntity<>(savedUser, headers, HttpStatus.CREATED); // Retornar o usuário salvo com o ID 
+        return new ResponseEntity<>(savedUser, headers, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
@@ -59,7 +59,7 @@ public class UserController {
         Optional<User> userOptional = userService.getUserById(id);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            user.setFullname(updatedUser.getFullname());  // Certifique-se de usar `setFullName`
+            user.setFullname(updatedUser.getFullname());
             user.setEmail(updatedUser.getEmail());
             user.setPassword(updatedUser.getPassword());
             user.setPhonenumber(updatedUser.getPhonenumber());

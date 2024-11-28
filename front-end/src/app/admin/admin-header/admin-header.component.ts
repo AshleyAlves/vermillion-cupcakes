@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { AdminAuthService } from '../admin-auth.service';
 
 @Component({
   selector: 'app-admin-header',
@@ -13,7 +15,7 @@ export class AdminHeaderComponent {
 
   menuOpen: boolean = false;
 
-  // constructor(private http: HttpClient, private authService: AuthService, private router: Router) { }
+  constructor(private http: HttpClient, private adminAuthService: AdminAuthService, private router: Router) { }
 
 
   toggleMenu(): void {
@@ -24,10 +26,7 @@ export class AdminHeaderComponent {
     this.menuOpen = false;
   }
 
-  // logout() {
-  //   this.authService.logout();
-  //   this.router.navigate(['']);
-  // }
- 
+  logout(): void { this.adminAuthService.logout(); this.router.navigate(['/admin/login']); }
+
 }
 

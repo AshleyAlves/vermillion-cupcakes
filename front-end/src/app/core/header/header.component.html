@@ -4,19 +4,32 @@
             <img src="assets/img/logo.png" alt="Logo da Empresa">
         </div>
         <div class="search-bar">
-            <input type="text" placeholder="Pesquisar">
-            <img src="assets/img/search.png" alt="Login">
+            <input type="text" placeholder="Pesquisar" [(ngModel)]="searchQuery" (input)="onSearch()">
+            <img src="assets/img/search.png" alt="Pesquisar">
+        </div>
+        <div *ngIf="searchResults.length > 0" class="search-results">
+            <div *ngFor="let product of searchResults" class="search-result-item"> <img [src]="product.imagem"
+                    alt="{{product.nome}}" class="result-image">
+                <div class="result-details">
+                    <h3>{{ product.nome }}</h3> 
+                    <button (click)="adicionarAosFavoritos(product)"><i class="fa-solid fa-heart fa-xl"
+                        style="color: #830000;"></i></button>
+                    <button (click)="adicionarAoCarrinho(product)"><i class="fa-solid fa-cart-shopping fa-xl"
+                        style="color: #DAA520;"></i></button>
+                </div>
+            </div>
         </div>
         <div class="user-actions">
             <div class="user-icon">
                 <img src="assets/img/user.png" alt="Login">
                 <a *ngIf="isLoggedIn; else loginLink" routerLink="/perfil"><span id="login">Minha Conta</span></a>
-                <ng-template #loginLink> <a routerLink="/cadastro">Minha Conta</a> </ng-template> 
+                <ng-template #loginLink> <a routerLink="/cadastro">Minha Conta</a> </ng-template>
                 <button *ngIf="isLoggedIn" (click)="logout()">Sair</button>
             </div>
-            <div class="cart-icon"> 
-                <img src="assets/img/cart.png" alt="Carrinho"> 
-                <a [routerLink]="['/carrinho']"><span id="cart-value">{{ totalQuantity }} itens<br>R${{ totalPrice.toFixed(2) }}</span></a> 
+            <div class="cart-icon">
+                <img src="assets/img/cart.png" alt="Carrinho">
+                <a [routerLink]="['/carrinho']"><span id="cart-value">{{ totalQuantity }} itens<br>R${{
+                        totalPrice.toFixed(2) }}</span></a>
             </div>
         </div>
     </div>
@@ -55,7 +68,7 @@
                         <li class="nav-item" id="duvidas"><a class="nav-link" routerLink="/duvidas"
                                 (click)="toggleMenu()">Dúvidas</a></li>
                         <li class="nav-item" id="faleConosco"><a class="nav-link"
-                                routerLink="https://api.whatsapp.com/send?phone=5511900000000" target="_blank">Fale
+                                href="https://api.whatsapp.com/send?phone=5511900000000" target="_blank">Fale
                                 Conosco</a></li>
                     </ul>
                 </div>

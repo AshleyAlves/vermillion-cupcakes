@@ -40,7 +40,7 @@ public class UserService {
         Optional<User> userOptional = usersRepository.findById(userId);
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            user.getFavoriteProductIds().add(productId); // Armazenar ID do produto
+            user.getFavoriteProductIds().add(productId); 
             usersRepository.save(user);
             return true;
         }

@@ -58,6 +58,12 @@ h3 {
     }
 }
 
+@media only screen and (min-width: 768px){
+    .filter-container select {
+        width:125px;
+    }
+}
+
 @media only screen and (min-width: 1024px){
     .filter-container {
         align-items: flex-start;

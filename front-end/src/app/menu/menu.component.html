@@ -1,21 +1,17 @@
 <app-cover></app-cover>
 <div class="espaco"></div>
 <div class="container" id="firstContainer">
-    <div class="row">
         <h1>Cardápio</h1>
         <div class="espaco"></div>
-    </div>
 </div>
 <div class="filter">
-    <div class="row">
         <div class="container">
             <app-filter (filterProducts)="filterProductsByCategory($event)"></app-filter>
         </div>
-    </div>
 </div>
 <div class="cupcakes">
     <div class="container">
-        <div class="row">
+        <div class="espaco"></div>
             <div class="products-container">
                 <div *ngFor="let product of paginatedProducts" class="product-card">
                     <img [src]="product.imagem" alt="{{product.nome}}" class="product-image">
@@ -33,8 +29,6 @@
             </div>
             <div *ngIf="message" class="alert"> {{ message }} </div>
             <div class="espaco"></div>
-            
-        </div>
     </div>
     <div class="pagination-controls">
         <button (click)="goToPreviousPage()" [disabled]="currentPage === 1"><i class="fa-solid fa-chevron-left"

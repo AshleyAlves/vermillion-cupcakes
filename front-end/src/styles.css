@@ -151,7 +151,7 @@ html {
     width: 145px;
     height: 90px;
     position: absolute;
-    left: -605px;
+    left: -599px;
     right: 0;
     margin: 0 auto;
     width: 168px;
@@ -162,7 +162,7 @@ html {
     display: block;
     height: 90px;
     position: absolute;
-    right: -610px;
+    right: -599px;
     left: 0;
     margin: 0 auto;
     width: 168px;
@@ -201,7 +201,6 @@ html {
   
   h1::after {
     right: -728px;
-    top: 599px;
   }
   html {
     font-size: 25px;
@@ -209,6 +208,12 @@ html {
   h2{
     font-size: 2.56rem;
     line-height: 89px;
+  }
+}
+
+@media only screen and (min-width: 1500px){
+  h1::after{
+    top: 599px;
   }
 }
 

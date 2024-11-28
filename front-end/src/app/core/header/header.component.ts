@@ -7,11 +7,15 @@ import { SearchComponent } from '../search/search.component';
 import * as bootstrap from 'bootstrap';
 import { AuthService } from '../../services/auth.service';
 import { CartService } from '../../services/cart.service';
+import { Product } from '../product/product.model';
+import { FavoriteService } from '../../services/favorite.service';
+import { ProductService } from '../product/product.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, SearchComponent],
+  imports: [CommonModule, RouterLink, SearchComponent, FormsModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
@@ -19,13 +23,20 @@ export class HeaderComponent implements OnInit {
   private apiUrl = 'api/produtos/pesquisa';
   menuOpen: boolean = false;
   isLoggedIn = false;
-  totalQuantity: number = 0; 
+  totalQuantity: number = 0;
   totalPrice: number = 0.00;
+  searchQuery: string = ''; searchResults: Product[] = [];
 
-  constructor(private http: HttpClient, private authService: AuthService, private router: Router, private cartService: CartService) { }
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router, private cartService: CartService, private favoriteService: FavoriteService, private productService: ProductService) { }
 
-  searchProducts(query: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}?q=${query}`);
+  onSearch(): void {
+    if (this.searchQuery.trim() !== '') {
+      this.productService.getProducts().subscribe((products: Product[]) => {
+        this.searchResults = products.filter(product => product.nome.toLowerCase().includes(this.searchQuery.toLowerCase()));
+      });
+    } else {
+      this.searchResults = [];
+    }
   }
 
   ngOnInit() {
@@ -46,8 +57,28 @@ export class HeaderComponent implements OnInit {
     this.isLoggedIn = false;
     this.router.navigate(['']);
   }
-  updateCartValues(): void { 
-    this.totalQuantity = this.cartService.getCartQuantity(); this.totalPrice = this.cartService.getTotalPrice(); 
+  updateCartValues(): void {
+    this.totalQuantity = this.cartService.getCartQuantity(); this.totalPrice = this.cartService.getTotalPrice();
+  }
+
+  adicionarAoCarrinho(product: Product): void {
+    this.cartService.addToCart(product);
+    console.log(`Produto ${product.nome} adicionado ao carrinho`);
+  }
+
+  adicionarAosFavoritos(product: Product): void {
+    const user = this.authService.getUser();
+    if (!user || !user.id) {
+      console.error('Usuário não está logado.'); return;
+    }
+
+    const productId = String(product.id);
+    this.favoriteService.addToFavorites(user.id, productId).subscribe({
+      next: () =>
+        console.log(`Produto ${product.nome} adicionado aos favoritos`),
+      error: (err) =>
+        console.error(`Erro ao adicionar ${product.nome} aos favoritos:`, err)
+    });
   }
 }
 

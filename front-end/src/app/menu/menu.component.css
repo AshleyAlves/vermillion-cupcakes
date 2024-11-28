@@ -4,7 +4,7 @@
   background-size: 100%;
   background-size: 2000px 1420px;
   background-repeat: no-repeat;
-  min-height: 1100px;
+  min-height: 528px;
 }
 
 .filter {
@@ -168,7 +168,7 @@ button {
     font-size: 1.2rem;
   }
   .cupcakes{
-    background-size: 2000px 1510px;
+    background-size: 2000px 1540px;
   }
 }
 

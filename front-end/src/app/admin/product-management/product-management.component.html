@@ -5,7 +5,8 @@
         <p>Nenhum produto cadastrado.</p>
     </div>
     <div class="espaco"></div>
-    <table *ngIf="products.length > 0">
+    <div class="table-responsive">
+       <table *ngIf="products.length > 0">
         <thead>
             <tr>
                 <th scope="col">Imagem</th>
@@ -27,9 +28,12 @@
                 <td>{{product.quantidade}}</td>
             </tr>
         </tbody>
-    </table>
+    </table> 
+    </div>
+    
     <div class="espaco"></div>
     <h2>Cadastrar produtos</h2>
+    <div class="espaco"></div>
     <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="nome">Nome</label>
