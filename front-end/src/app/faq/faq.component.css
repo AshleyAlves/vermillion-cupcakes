@@ -32,33 +32,37 @@
 
 h1::after {
     right: -385px;
-    bottom: 412px;
 }
 
 h1::before {
     left: -385px;
 }
 
-#firstContainer {
-    margin-top: 120px;
-}
-
-@media only screen and (min-width: 768px) {
-    #firstContainer {
-        margin-top: 130px;
-    }
-}
 
 @media only screen and (min-width: 1024px) {
     .accordion-item h2 button {
         font-size: 20px !important;
     }
+    h1::after {
+        right: -400px;
+    }
+    
+    h1::before {
+        left: -400px;
+    }
 }
+
+@media only screen and (min-width: 1400px){
+    h2{
+        line-height: 30px;
+    }
+}
+
+
 
 @media only screen and (max-width: 767px) {
     .background {
         background-repeat: repeat;
     }
-
 
 }

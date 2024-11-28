@@ -33,4 +33,12 @@ public class ProductService {
     public List<Product> searchProducts(String keyword) {
         return productRepository.findByNomeContainingIgnoreCase(keyword);
     }
+
+    public List<Product> getProducts() { 
+        return productRepository.findAll(); 
+    } 
+    
+    public Product addProduct(Product product) { 
+        return productRepository.save(product); 
+    }
 }

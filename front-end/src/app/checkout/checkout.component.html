@@ -3,34 +3,22 @@
 <div class="container">
     <h1>Checkout</h1>
     <div class="espaco"></div>
-    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <form>
       <div class="form-group">
         <label for="name">Nome no Cartão</label>
         <input type="text" id="name" formControlName="name" class="form-control" />
-        <div *ngIf="checkoutForm.get('name')?.invalid && checkoutForm.get('name')?.touched">
-          <small class="text-danger">Nome é obrigatório.</small>
-        </div>
       </div>
       <div class="form-group">
         <label for="cardNumber">Número do Cartão</label>
         <input type="text" id="cardNumber" formControlName="cardNumber" class="form-control" />
-        <div *ngIf="checkoutForm.get('cardNumber')?.invalid && checkoutForm.get('cardNumber')?.touched">
-          <small class="text-danger">Número do cartão inválido.</small>
-        </div>
       </div>
       <div class="form-group">
         <label for="expiryDate">Data de Validade (MM/AA)</label>
         <input type="text" id="expiryDate" formControlName="expiryDate" class="form-control" />
-        <div *ngIf="checkoutForm.get('expiryDate')?.invalid && checkoutForm.get('expiryDate')?.touched">
-          <small class="text-danger">Data de validade inválida.</small>
-        </div>
       </div>
       <div class="form-group">
         <label for="cvv">CVV</label>
         <input type="text" id="cvv" formControlName="cvv" class="form-control" />
-        <div *ngIf="checkoutForm.get('cvv')?.invalid && checkoutForm.get('cvv')?.touched">
-          <small class="text-danger">CVV inválido.</small>
-        </div>
       </div>
       <div class="espaco"></div>
       <div class="form-group">

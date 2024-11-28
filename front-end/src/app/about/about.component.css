@@ -10,27 +10,17 @@ h1::before{
 }
 h1::after{
     right: -781px;
-    top: 521px;
-}
-.container{
-    margin-top: 120px;
 }
 @media only screen and (min-width: 768px){
-    .container{
-        margin-top: 130px;
-    }
     h1::before{
         left: -620px;
     }
     h1::after{
         right: -620px;
-        top: 411px;
+        
     }
 }
 @media only screen and (min-width: 1024px){
-    .container{
-        margin-top: 210px;
-    }
     .row{
         display: flex;
     }
@@ -42,7 +32,6 @@ h1::after{
     }
     h1::after{
         right: -770px;
-        top: 509px;
     }
 }
 

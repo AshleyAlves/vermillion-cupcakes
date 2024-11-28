@@ -1,0 +1,24 @@
+h1::before {
+    display: none;
+}
+
+h1::after {
+    display: none;
+}
+
+h2{
+    font-size: 1.8rem;
+}
+span{
+    color: var(--clr-gold);
+}
+
+@media only screen and (min-width: 768px) {
+    .dados {
+        display: flex;
+        justify-content: space-between;
+    }
+    .dados img{
+        max-width: 600px;
+    }
+}

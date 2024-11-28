@@ -1,0 +1,94 @@
+h1{
+  font-size: 40px;
+}
+.login{
+  background-image: url(../../../assets/img/bg.jpg);
+  background-size: 2000px 1000px;
+  background-repeat: no-repeat;
+  height: 895px;
+  max-width: 2000px;
+}
+.espaco{
+  height: 210px;
+}
+
+.admin-login-container {
+    max-width: 400px;
+    margin: 0 10px;
+    padding: 20px;
+    border: 1px solid var(--clr-gold);
+    border-radius: 10px;
+    background-color: #ffffffc2;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--clr-red);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--clr-gold);
+  }
+
+  form input {
+    background-color: var(--clr-red);
+    max-width: 488px;
+    border: solid var(--clr-gold) 2px;
+    margin: 10px 0;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+form input::placeholder {
+  color: white;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+input:focus {
+  box-shadow: none;
+  border: 2px solid var(--clr-gold);
+}
+
+  
+  .text-danger {
+    color: red;
+  }
+  
+  h1::before{
+    display: none;
+  }
+
+  h1::after{
+    display: none;
+  }
+
+  @media only screen and (min-width: 768px){
+    h1{
+      font-size: 46px;
+    }
+    .admin-login-container {
+      margin: 0 auto;
+    }
+    .login{
+      height: 1000px;
+    }
+  }

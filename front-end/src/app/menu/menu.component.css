@@ -1,13 +1,10 @@
-#firstContainer {
-  margin-top: 120px;
-}
 .cupcakes {
   background-image: url("../../assets/img/bg-cardapio.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-size: 2000px 1420px;
   background-repeat: no-repeat;
-  min-height: 1200px;
+  min-height: 1100px;
 }
 
 .filter {
@@ -41,7 +38,6 @@ label {
 
 h1::after {
   right: -385px;
-  bottom: 412px;
 }
 
 h1::before {
@@ -69,7 +65,7 @@ h2 {
   transition: 0.3s;
   box-sizing: border-box;
   width: 250px;
-  max-height: 575px;
+  max-height: 605px;
   border: 4px solid var(--clr-gold);
   border-radius: 10px;
   background-color: #ffffff9c;
@@ -88,6 +84,7 @@ h2 {
 .bottom-card {
   display: flex;
   justify-content: space-around;
+  align-content: center;
 }
 
 .buttons {
@@ -137,6 +134,7 @@ button {
   color: white;
   border-radius: 8px;
   font-size: 0.7rem;
+  margin: 10px auto;
 }
 
 @media only screen and (min-width: 375px) {
@@ -147,12 +145,12 @@ button {
   .product-image {
     width: 287px;
   }
+  .cupcakes {
+    background-size: 2000px 1558px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
-  #firstContainer {
-    margin-top: 130px;
-  }
   .product-card {
     width: 295px;
   }
@@ -175,9 +173,6 @@ button {
 }
 
 @media only screen and (min-width: 1024px) {
-  #firstContainer {
-    margin-top: 210px;
-  }
   .product-card {
     width: 330px;
   }
@@ -191,19 +186,28 @@ button {
   }
 
   .buttons {
-    right: -85px;
+    right: -70px;
   }
 
   .bottom-card p {
     color: var(--clr-gold);
+    font-size: 1rem;
   }
   h1::after {
     right: -425px;
-    bottom: 314px;
   }
   
   h1::before {
     left: -430px;
+  }
+  h2{
+    font-size: 20px;
+  }
+  .cupcakes{
+    background-size: 2000px 1640px;
+  }
+  p{
+    margin: 0;
   }
 }
 
@@ -211,10 +215,21 @@ button {
   .product-card {
     width: 382px;
   }
-}
-
-@media only screen and (min-width: 375px) and (max-width: 767px) {
-  .cupcakes {
-    background-size: 2000px 1558px;
+  .product-image {
+    width: 374px;
   }
+  h2{
+    font-size: 22px;
+  }
+  .product-card h2{
+    line-height: 40px;
+  }
+  .bottom-card p {
+    font-size: 1.2rem;
+  }
+  
+  .buttons {
+    right: -85px;
+  }
+
 }

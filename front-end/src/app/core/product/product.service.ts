@@ -34,4 +34,8 @@ export class ProductService {
       switchMap((term) => this.searchProducts(term))
     );
   }
+
+  addProduct(product: Product): Observable<Product> { 
+    return this.http.post<Product>(this.apiUrl, product); 
+  }
 }

@@ -1,0 +1,24 @@
+<div class="login">
+    <div class="espaco"></div>
+    <div class="admin-login-container">
+        <h1>Login de Administrador</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <input type="email" id="email" formControlName="email" class="form-control" placeholder="E-mail"/>
+                <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
+                    Email é obrigatório e deve ser válido.
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" formControlName="password" class="form-control" placeholder="Senha"/>
+                <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+                    Senha é obrigatória.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <div *ngIf="errorMessage" class="text-danger">
+            {{ errorMessage }}
+        </div>
+    </div>
+</div>

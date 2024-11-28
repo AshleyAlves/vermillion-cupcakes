@@ -1,4 +1,4 @@
-<header>
+<header [ngClass]="{'logged-in-header': isLoggedIn}">
     <div class="container">
         <div class="logo">
             <img src="assets/img/logo.png" alt="Logo da Empresa">
@@ -12,7 +12,7 @@
                 <img src="assets/img/user.png" alt="Login">
                 <a *ngIf="isLoggedIn; else loginLink" routerLink="/perfil"><span id="login">Minha Conta</span></a>
                 <ng-template #loginLink> <a routerLink="/cadastro">Minha Conta</a> </ng-template> 
-                <button *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+                <button *ngIf="isLoggedIn" (click)="logout()">Sair</button>
             </div>
             <div class="cart-icon"> 
                 <img src="assets/img/cart.png" alt="Carrinho"> 

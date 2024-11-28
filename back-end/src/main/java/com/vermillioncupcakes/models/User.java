@@ -54,6 +54,9 @@ public class User implements Serializable {
     @Column(nullable = true, name = "city")
     private String city;
 
+    @Column(name = "is_admin")
+    private boolean isAdmin;
+
     @ElementCollection
     private Set<Long> favoriteProductIds = new HashSet<>(); 
 

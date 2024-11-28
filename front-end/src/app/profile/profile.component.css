@@ -1,6 +1,6 @@
 h1::after {
   right: -445px;
-  bottom: 412px;
+  bottom: 394px;
 }
 
 h1::before {
@@ -72,7 +72,7 @@ ul {
   transition: 0.3s;
   box-sizing: border-box;
   width: 250px;
-  max-height: 575px;
+  max-height: 615px;
   border: 4px solid var(--clr-gold);
   border-radius: 10px;
   background-color: #ffffff9c;
@@ -107,11 +107,6 @@ button span {
   text-transform: uppercase;
   margin: 0 10px;
 }
-
-#firstContainer {
-  margin-top: 120px;
-}
-
 
 .alert {
   text-align: center;
@@ -148,9 +143,6 @@ button span {
     margin-top: 20px;
     right: -85px;
   }
-  #firstContainer {
-    margin-top: 130px;
-  }
 
 }
 
@@ -181,6 +173,46 @@ button span {
     float: right;
   }
   .product-card {
+    width: 295px;
+  }
+  h1::after {
+    right: -505px;
+    bottom: 315px;
+  }
+  
+  h1::before {
+    left: -505px;
+  }
+  .product-card {
+    width: 315px;
+  }
+  .product-image {
+    width: 307px;
+  }
+}
+@media only screen and (min-width: 1200px){
+  .product-card {
+    width: 370px;
+  }
+  .product-image {
+    width: 362px;
+  }
+}
+
+@media only screen and (min-width: 1400px){
+  .product-card {
     width: 382px;
+  }
+  .product-image {
+    width: 374px;
+  }
+  .product-card h2{
+    line-height: 40px;
+  }
+}
+
+@media only screen and (min-width: 1480px){
+  h1::after {
+    bottom: 224px;
   }
 }

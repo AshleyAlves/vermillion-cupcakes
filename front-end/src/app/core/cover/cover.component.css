@@ -1,12 +1,8 @@
 .border {
     position: relative;
-    bottom: 4px;
-}
-.row{
-    padding: 0 15px;
+    top: 0;
 }
 .cover {
-    position: absolute;
     background-repeat: no-repeat;
     max-width: 2000px;
     height: 130px;
@@ -20,23 +16,10 @@
     .cover {
         height: 210px;
     }
-    .border{
-        top: 210px;
-    }
 } 
 
 @media only screen and (min-width: 1480px) {
     .cover {
         height: 300px;
-    }
-    .border{
-        top: 299px;
-    }
-} 
-
-
-@media only screen and (max-width: 768px){
-    .border{
-        top: 130px;
     }
 }

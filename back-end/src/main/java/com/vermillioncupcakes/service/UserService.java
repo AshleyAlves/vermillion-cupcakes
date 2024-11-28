@@ -62,4 +62,17 @@ public class UserService {
             } 
         } return false; 
     }
+
+    public User updateUser(Long id, User user) { 
+        Optional<User> optionalUser = usersRepository.findById(id); 
+        if (optionalUser.isPresent()) { 
+            User existingUser = optionalUser.get(); 
+            existingUser.setEmail(user.getEmail()); 
+            existingUser.setPassword(user.getPassword()); 
+            existingUser.setAdmin(user.isAdmin()); 
+            return usersRepository.save(existingUser); 
+        } else { 
+            throw new RuntimeException("Usuário não encontrado"); 
+        } 
+    }
 }

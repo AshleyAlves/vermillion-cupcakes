@@ -1,0 +1,25 @@
+h1::before {
+    display: none;
+}
+
+h1::after {
+    display: none;
+}
+
+table {
+    background-color: #efefef;
+    text-align: center;
+    margin: 0 auto;
+}
+
+table th,
+td {
+    border: 1px solid var(--clr-gold);
+    padding: 10px;
+}
+
+table th {
+    color: var(--clr-red);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}

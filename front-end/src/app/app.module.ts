@@ -20,6 +20,12 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { SearchComponent } from './core/search/search.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { AdminLoginComponent } from './admin/login/admin-login.component';
+import { PanelComponent } from './admin/panel/panel.component';
+import { AdminLayoutComponent } from './admin/layout/admin-layout.component';
+import { CustomerLayoutComponent } from './layout/customer-layout/customer-layout.component';
+import { ProductManagementComponent } from './admin/product-management/product-management.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +43,12 @@ import { LoginComponent } from './login/login.component';
     NgxMaskDirective,
     SearchComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    AdminLoginComponent,
+    PanelComponent,
+    AdminLayoutComponent,
+    CustomerLayoutComponent,
+    ProductManagementComponent
   ],
   imports: [
     BrowserModule,

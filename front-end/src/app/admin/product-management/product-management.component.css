@@ -1,0 +1,75 @@
+h1::before {
+    display: none;
+}
+
+h1::after {
+    display: none;
+}
+
+table {
+    background-color: #efefef;
+    text-align: center;
+}
+
+table th,
+td {
+    border: 1px solid var(--clr-gold);
+    padding: 10px;
+}
+
+table th {
+    color: var(--clr-red);
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+form {
+    width: 600px;
+    margin: 0 auto;
+}
+
+form label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: var(--clr-red);
+    text-align: center;
+}
+
+
+form input,
+textarea {
+    background-color: var(--clr-red);
+    max-width: 600px;
+    border: solid var(--clr-gold) 2px;
+    margin: 10px 0;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+input:focus {
+    box-shadow: none;
+    border: 2px solid var(--clr-gold);
+}
+
+textarea:focus {
+    background-color: var(--clr-red);
+    box-shadow: none;
+    border: 2px solid var(--clr-gold);
+    color: white;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--clr-red);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: var(--clr-gold);
+}

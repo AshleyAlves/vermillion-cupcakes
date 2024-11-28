@@ -1,0 +1,364 @@
+header {
+    background: rgb(29, 1, 1);
+    background: linear-gradient(90deg, rgba(29, 1, 1, 1) 0%, rgba(86, 0, 0, 1) 55%);
+    height: 355px;
+    font-family: "Roboto", sans-serif;
+    color: var(--clr-white);
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 10px 0;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  header .container {
+    height: 280px;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  
+  header .logo img {
+    width: 127px;
+  }
+  
+  
+  
+  /* Nav */
+  .nav-container {
+    background-color: transparent;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .nav-container nav {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav ul li {
+    position: relative;
+  }
+  
+  nav ul li:hover {
+    cursor: pointer;
+  }
+  
+  nav ul li a {
+    color: var(--clr-white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    line-height: 47px;
+  }
+  
+  nav ul .dropdown-menu {
+    display: block;
+  }
+  
+  nav ul li .dropdown-content li {
+    margin: 0;
+    height: 35px;
+  }
+  
+  nav ul li .dropdown-content li a {
+    padding: 10px 20px;
+    display: block;
+    text-align: left;
+  }
+  
+  nav ul li:hover .dropdown-content {
+    display: block;
+  }
+  
+  nav ul li .dropdown-content a {
+    line-height: 19px;
+  }
+  
+  .dropdown-item:focus,
+  .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  
+  @media only screen and (min-width: 375px) {
+  
+  
+    .logo {
+      width: 342px;
+    }
+  }
+  
+  @media only screen and (min-width: 425px) {
+
+    .logo {
+      width: 387px;
+    }
+  
+  }
+  
+  @media only screen and (min-width: 768px) {
+    header {
+      height: 225px;
+      padding: 0;
+    }
+  
+    header .container {
+      display: flex;
+      height: 160px;
+    }
+
+    nav ul .dropdown-menu {
+      display: block;
+      position: absolute;
+      min-width: 190px;
+      min-height: 205px;
+      left: 0px;
+      top: 64px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0px 7px 8px 2px rgba(0, 0, 0, 0.25);
+    }
+  
+    nav ul li {
+      margin: 0 15px;
+    }
+  
+  
+    nav ul li .dropdown-content li:hover::after {
+      top: 35px;
+    }
+  
+    .nav-item.dropdown .dropdown-menu {
+      display: none;
+    }
+  
+    .nav-item.dropdown:hover .dropdown-menu {
+      display: block;
+    }
+  
+    nav ul li:hover::after {
+      content: '';
+      position: absolute;
+      background-color: var(--clr-gold);
+      width: 50px;
+      height: 5px;
+      border-radius: 25px;
+      border: 1px solid var(--clr-gold);
+      top: 47px;
+    }
+  
+    .navbar-nav {
+      height: 65px;
+    }
+  
+    #painel:hover::after {
+      left: 15px;
+    }
+  
+    #produtos:hover::after {
+      left: 35px;
+    }
+  
+    #clientes:hover::after {
+      left: 27px;
+    }
+  
+    #sair:hover::after {
+      left: 8px;
+    }
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    header {
+      height: 160px;
+    }
+  
+    a {
+      font-size: 0.8rem;
+    }
+  
+    header .container {
+      height: 158px;
+    }
+  
+    header .logo img {
+      width: 127px;
+    }
+  
+    /* Nav */
+    .nav-container {
+      height: 65px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+  
+    .nav-container nav {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+  
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+  
+    nav ul li {
+      margin: 0 40px;
+    }
+  
+    .dropdown-menu li {
+      margin: 0 20px !important;
+    }
+  
+    nav ul li:hover {
+      cursor: pointer;
+    }
+  
+    nav ul li a {
+      font-size: 18px;
+      line-height: 47px;
+    }
+  
+    nav ul li:hover::after {
+      top: 49px;
+    }
+  
+    #home:hover::after {
+      left: 13px;
+    }
+  
+    #sobre:hover::after {
+      left: 16px;
+    }
+  
+    #cardapio:hover::after {
+      left: 31px;
+    }
+  
+    #duvidas:hover::after {
+      left: 26px;
+    }
+  
+  
+    #baunilha {
+      margin-top: 10px;
+    }
+  
+    #baunilha:hover::after {
+      left: 44px;
+    }
+  
+    #chocolate:hover::after {
+      left: 50px;
+    }
+  
+    #coco:hover::after {
+      left: 24px;
+    }
+  
+    #laranja:hover::after {
+      left: 39px;
+    }
+  
+    #todos:hover::after {
+      left: 27px;
+    }
+  
+    nav ul li .dropdown-content a {
+      line-height: 19px;
+    }
+  }
+  
+  @media only screen and (min-width:1100px) {
+    a {
+      font-size: 1.12rem;
+    }
+  
+  }
+  
+  @media only screen and (min-width:1400px) {
+    .logo {
+      margin-left: 60px;
+    }
+  }
+  
+  @media only screen and (min-width:1600px) {
+    .logo {
+      margin-left: 90px;
+    }
+  }
+  
+  @media only screen and (min-width:1700px) {
+    .logo {
+      margin-left: 110px;
+    }
+  }
+  
+  @media only screen and (max-width: 767px) {
+  
+    .navbar-toggler-icon {
+      background-image: url("../../../assets/img/bars-solid.svg");
+      width: 32px;
+      height: 32px;
+    }
+  
+    header .logo {
+      text-align: center;
+    }
+  
+  
+    .nav-container,
+    nav {
+      background: var(--clr-gold);
+    }
+  
+    nav button {
+      border: none;
+    }
+  
+    nav ul li a {
+      line-height: 28px;
+      color: white;
+    }
+  
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 0;
+    }
+  
+    .container-fluid {
+      padding-top: 10px;
+    }
+  
+    nav ul li {
+      border-bottom: solid 1px white;
+    }
+  
+    .dropdown-menu {
+      border: none;
+      background-color: var(--clr-gold);
+    }
+  }

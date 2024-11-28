@@ -101,11 +101,21 @@ ul {
         line-height: 40px;
     }
     .col-3 a{
-        font-size: 0.8rem;
+        font-size: 0.6rem;
     }
     .payments img {
         height: 38px;
         width: 290px;
+    }
+}
+@media only screen and (min-width: 1200px){
+    .col-3 a{
+        font-size: 0.7rem;
+    }
+}
+@media only screen and (min-width: 1300px){
+    .col-3 a{
+        font-size: 0.8rem;
     }
 }
 @media only screen and (max-width: 767px){
@@ -123,8 +133,3 @@ ul {
     }
 }
 
-@media only screen and (min-width: 1024px){
-    .col-3 a{
-        font-size: 0.6rem;
-    }
-}

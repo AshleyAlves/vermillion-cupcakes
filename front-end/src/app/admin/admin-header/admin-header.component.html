@@ -1,0 +1,35 @@
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="assets/img/logo.png" alt="Logo da Empresa">
+        </div>
+        <div class="nav-container">
+            <nav class="navbar navbar-expand-md">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenu()">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'show': menuOpen}">
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                            <li class="nav-item" id="painel">
+                                <a class="nav-link" aria-current="page" routerLink="/admin/painel" (click)="toggleMenu()">Painel</a>
+                            </li>
+                            <li class="nav-item" id="produtos">
+                                <a class="nav-link" routerLink="/admin/estoque" (click)="toggleMenu()">Produtos</a>
+                            </li>
+                            <li class="nav-item" id="clientes">
+                                <a class="nav-link" role="button" routerLink="/admin/clientes" aria-expanded="false">Clientes</a>
+                            </li>
+                            <li class="nav-item" id="sair">
+                                <a class="nav-link" role="button" aria-expanded="false">Sair</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    </div>
+    
+    </div>
+</header>

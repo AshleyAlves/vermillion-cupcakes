@@ -27,20 +27,10 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping
-    public List<Product> listAll() {
-        return productService.listAll();
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<Product> findById(@PathVariable Long id) {
         Optional<Product> product = productService.getProductById(id);
         return product.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
-    @PostMapping
-    public Product criar(@RequestBody Product product) {
-        return productService.save(product);
     }
 
     @PutMapping("/{id}")
@@ -73,5 +63,17 @@ public class ProductController {
     @GetMapping("/pesquisa")
     public List<Product> searchProducts(@RequestParam String keyword) {
         return productService.searchProducts(keyword);
+    }
+
+    @GetMapping 
+    public ResponseEntity<List<Product>> getProducts() { 
+        List<Product> products = productService.getProducts(); 
+        return ResponseEntity.ok(products); 
+    } 
+    
+    @PostMapping 
+    public ResponseEntity<Product> addProduct(@RequestBody Product product) { 
+        Product newProduct = productService.addProduct(product); 
+        return ResponseEntity.ok(newProduct);
     }
 }
