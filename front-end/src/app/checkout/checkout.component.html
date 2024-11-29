@@ -3,7 +3,7 @@
 <div class="container">
     <h1>Checkout</h1>
     <div class="espaco"></div>
-    <form>
+    <form [formGroup]="checkoutForm">
       <div class="form-group">
         <label for="name">Nome no Cartão</label>
         <input type="text" id="name" formControlName="name" class="form-control" />

@@ -1,14 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AdminLayoutComponent } from './admin-layout.component';
 
-describe('LayoutComponent', () => {
+import { RouterTestingModule } from '@angular/router/testing';
+
+describe('AdminLayoutComponent', () => {
   let component: AdminLayoutComponent;
   let fixture: ComponentFixture<AdminLayoutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AdminLayoutComponent]
+      imports: [AdminLayoutComponent, HttpClientTestingModule, RouterTestingModule]
     })
     .compileComponents();
 

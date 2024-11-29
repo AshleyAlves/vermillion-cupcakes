@@ -13,5 +13,5 @@ import { FooterComponent } from './core/footer/footer.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'routing-app';
+  title = 'Vermillion Cupcakes';
 }

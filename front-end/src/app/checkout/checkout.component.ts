@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CoverComponent } from '../core/cover/cover.component';
 
@@ -11,5 +11,7 @@ import { CoverComponent } from '../core/cover/cover.component';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
-  
+  checkoutForm: FormGroup;
+
+  constructor(private fb: FormBuilder) { this.checkoutForm = this.fb.group({ name: ['', Validators.required], cardNumber: [''], expiryDate: [''], cvv: [''] });}
 }
