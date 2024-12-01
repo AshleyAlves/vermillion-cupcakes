@@ -35,7 +35,15 @@ export class ProductService {
     );
   }
 
-  addProduct(product: Product): Observable<Product> { 
-    return this.http.post<Product>(this.apiUrl, product); 
+  addProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(this.apiUrl, product);
+  }
+
+  updateProduct(product: Product): Observable<Product> { 
+    return this.http.put<Product>(`${this.apiUrl}/${product.id}`, product); 
+  }
+
+  deleteProduct(productId: number): Observable<void> { 
+    return this.http.delete<void>(`${this.apiUrl}/${productId}`); 
   }
 }

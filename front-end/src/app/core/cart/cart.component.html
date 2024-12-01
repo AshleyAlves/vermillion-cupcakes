@@ -10,8 +10,11 @@
     <ul>
       <li *ngFor="let item of cartItems">
         <img [src]="item.imagem" alt="{{ item.nome }}" width="100">
-        <h2>{{ item.nome }}</h2>
+        <div class="dados">
+          <h2>{{ item.nome }}</h2>
         <h3>R${{ item.preco.toFixed(2) }}</h3>
+        </div>
+        
       </li>
     </ul>
     <div class="espaco"></div>

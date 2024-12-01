@@ -38,6 +38,48 @@ table th {
     font-size: 18px;
 }
 
+table button{
+    border: none;
+    background-color: var(--clr-gold);
+    padding: 10px;
+    color: white;
+    border-radius: 7px;
+    margin: 10px;
+}
+
+table button:hover{
+    background-color: var(--clr-red);
+}
+
+table input{
+    border: none;
+    background-color: #efefef;
+}
+
+table input:focus-visible{
+    padding: 10px;
+}
+
+#table-preco{
+    min-width: 10px;
+    max-width: 90px;
+}
+
+#table-preco input{
+    min-width: 10px;
+    max-width: 70px;
+}
+
+#table-estoque{
+    min-width: 10px;
+    max-width: 90px;
+}
+
+#table-estoque input{
+    min-width: 10px;
+    max-width: 70px;
+}
+
 form {
     width: 290px;
     margin: 0 auto;

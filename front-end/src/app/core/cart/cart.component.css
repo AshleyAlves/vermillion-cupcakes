@@ -3,7 +3,7 @@ p {
 }
 
 h2 {
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 h3 {
@@ -16,7 +16,8 @@ ul {
 }
 
 ul li {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    height: 145px;
 }
 
 button {
@@ -48,6 +49,11 @@ h1::before {
     left: -390px;
 }
 
+.dados{
+    width: 500px;
+    display: contents;
+}
+
 @media only screen and (min-width: 768px) {
     ul li {
         margin-bottom: 30px;
@@ -57,6 +63,10 @@ h1::before {
     img {
         margin-left: 100px;
         width: 160px;
+    }
+
+    h2{
+        font-size: 1.3rem;
     }
 
 }
@@ -79,10 +89,6 @@ h1::before {
     img {
         margin-left: 145px;
         width: 200px;
-    }
-    ul li h2, ul li h3{
-        position: relative;
-        right: 165px;
     }
 
 }

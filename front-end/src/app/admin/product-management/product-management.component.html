@@ -6,31 +6,36 @@
     </div>
     <div class="espaco"></div>
     <div class="table-responsive">
-       <table *ngIf="products.length > 0">
-        <thead>
-            <tr>
-                <th scope="col">Imagem</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Preço</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Estoque</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let product of products">
-                <td><img [src]="product.imagem" alt="{{product.nome}}" width="75" height="85">
-                </td>
-                <td>{{product.nome}}</td>
-                <td>{{product.preco | currency:'BRL':'symbol'}}</td>
-                <td>{{product.descricao}}</td>
-                <td>{{product.categoria}}</td>
-                <td>{{product.quantidade}}</td>
-            </tr>
-        </tbody>
-    </table> 
+        <table *ngIf="products.length > 0">
+            <thead>
+                <tr>
+                    <th scope="col">Imagem</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Estoque</th>
+                    <th scope="col">Gerenciar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td><img [src]="product.imagem" alt="{{product.nome}}" width="75" height="85">
+                    </td>
+                    <td><input [(ngModel)]="product.nome" /></td> 
+                    <td id="table-preco"><input [(ngModel)]="product.preco" type="number" /></td> 
+                    <td><input [(ngModel)]="product.descricao" /></td> 
+                    <td><input [(ngModel)]="product.categoria" /></td> 
+                    <td id="table-estoque"><input [(ngModel)]="product.quantidade" type="number" /></td> 
+                    <td> 
+                        <button (click)="updateProduct(product)">Salvar</button> 
+                        <button (click)="deleteProduct(product.id)">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    
+
     <div class="espaco"></div>
     <h2>Cadastrar produtos</h2>
     <div class="espaco"></div>

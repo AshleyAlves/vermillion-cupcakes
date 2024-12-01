@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart.service';
 import { FavoriteService } from '../services/favorite.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -27,7 +28,7 @@ export class MenuComponent implements OnInit {
   itemsPerPage: number = 6;
   message: string = '';
 
-  constructor(private productService: ProductService, private authService: AuthService, private http: HttpClient, private cartService: CartService, private favoriteService: FavoriteService) {}
+  constructor(private productService: ProductService, private authService: AuthService, private http: HttpClient, private cartService: CartService, private favoriteService: FavoriteService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadProducts();
@@ -40,7 +41,7 @@ export class MenuComponent implements OnInit {
   loadProducts(): void {
     this.productService.getProducts().subscribe((data: Product[]) => {
       this.products = data;
-      this.filteredProducts = data; // Inicializa os produtos filtrados com todos os produtos
+      this.filteredProducts = data; 
       this.setPage(1);
     }, error => {
       console.error('Erro ao carregar produtos:', error);
@@ -82,7 +83,7 @@ export class MenuComponent implements OnInit {
     } else {
       this.filteredProducts = this.products;
     }
-    this.setPage(1); // Reajusta a paginação após a filtragem
+    this.setPage(1);
   }
 
   adicionarAoCarrinho(product: Product): void { 
@@ -99,6 +100,7 @@ export class MenuComponent implements OnInit {
     const user = this.authService.getUser(); 
     if (!user || !user.id) { 
       console.error('Usuário não está logado.'); 
+      this.router.navigate(['/login']);
       return; 
     } 
     const productId = String(product.id); 

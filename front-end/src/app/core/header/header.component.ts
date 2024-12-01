@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, NavigationEnd } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SearchComponent } from '../search/search.component';
@@ -25,9 +25,13 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   totalQuantity: number = 0;
   totalPrice: number = 0.00;
-  searchQuery: string = ''; searchResults: Product[] = [];
+  searchQuery: string = ''; 
+  searchResults: Product[] = [];
 
-  constructor(private http: HttpClient, private authService: AuthService, private router: Router, private cartService: CartService, private favoriteService: FavoriteService, private productService: ProductService) { }
+  constructor(private http: HttpClient, private authService: AuthService, private router: Router, private cartService: CartService, private favoriteService: FavoriteService, private productService: ProductService) {
+    this.router.events.subscribe((event) => { if (event instanceof NavigationEnd) { this.clearSearch(); } });
+
+  }
 
   onSearch(): void {
     if (this.searchQuery.trim() !== '') {
@@ -61,15 +65,21 @@ export class HeaderComponent implements OnInit {
     this.totalQuantity = this.cartService.getCartQuantity(); this.totalPrice = this.cartService.getTotalPrice();
   }
 
+  clearSearch(): void { this.searchQuery = ''; this.searchResults = []; }
+
   adicionarAoCarrinho(product: Product): void {
     this.cartService.addToCart(product);
+    this.clearSearch();
     console.log(`Produto ${product.nome} adicionado ao carrinho`);
   }
 
   adicionarAosFavoritos(product: Product): void {
+    this.clearSearch();
     const user = this.authService.getUser();
     if (!user || !user.id) {
-      console.error('Usuário não está logado.'); return;
+      console.error('Usuário não está logado.');
+      this.router.navigate(['/login']);
+      return;
     }
 
     const productId = String(product.id);
